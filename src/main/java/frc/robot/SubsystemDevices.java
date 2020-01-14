@@ -15,6 +15,11 @@ public class SubsystemDevices {
     public static Relay relayLighter = new Relay(1);
 
     // Motor Controllers
+    public static WPI_TalonSRX talonSrxDiffWheelFrontLeft = new WPI_TalonSRX(21); // 1 motor
+    public static WPI_TalonSRX talonSrxDiffWheelRearLeft = new WPI_TalonSRX(22); // 1 motor
+    public static WPI_TalonSRX talonSrxDiffWheelFrontRight = new WPI_TalonSRX(23); // 1 motor
+    public static WPI_TalonSRX talonSrxDiffWheelRearRight = new WPI_TalonSRX(24); // 1 motor
+
     public static WPI_TalonSRX talonSrxConveyor = new WPI_TalonSRX(9);
     public static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(9); // 1 motor
 
