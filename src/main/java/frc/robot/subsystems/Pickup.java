@@ -13,14 +13,20 @@ import frc.robot.SubsystemDevices;
 // Pickup subsystem, for grabbing and releasing balls
 public class Pickup extends SubsystemBase {
 
-    
+    private final boolean pickupState = false; //false = off; true = on
+
     public Pickup() {
         Logger.setup("Constructing Subsystem: Pickup...");
-        
+        if (pickupState) {
+            talonSrxPickup.set(0.5);
+            boolean pickupState = true;
+        } else {
+            talonSrxPickup.stop();
+            boolean pickupState = false;
         }
+
     }
 
-
-
 }
+
 
