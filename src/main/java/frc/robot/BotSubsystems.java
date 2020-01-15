@@ -9,18 +9,24 @@ import frc.robot.subsystems.*;
 public class BotSubsystems {
 
     public static Lighter lighter;
+    public static Pickup pickup;
 
     // Initialize all robot subsystems
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
 
         lighter = new Lighter();
+        pickup = new Pickup();
     }
 
     // Set all the subsystem default commands
     public static void setDefaultCommands() {
         Logger.setup("Lighter DefaultCommand -> CycleLights...");
         lighter.setDefaultCommand(BotCommands.cycleLights);
+
+        Logger.setup("Pickup DefaultCommand -> StopPickup...");
+        pickup.setDefaultCommand(BotCommands.stopPickup);
     }
+
 
 }
