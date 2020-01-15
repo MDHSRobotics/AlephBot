@@ -26,7 +26,7 @@ public class SubsystemDevices {
     public static WPI_TalonSRX talonSrxMecWheelRearLeft = new WPI_TalonSRX(2); // 1 motor
     public static WPI_TalonSRX talonSrxMecWheelFrontRight = new WPI_TalonSRX(3); // 1 motor
     public static WPI_TalonSRX talonSrxMecWheelRearRight = new WPI_TalonSRX(4); // 1 motor
-    //public static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(#); // 1 motor
+    public static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(5); // 1 motor
 
     // Drives
     public static DifferentialDrive diffDrive;
