@@ -67,14 +67,14 @@ public class DiffDriver extends SubsystemBase {
     public void stop() {
         if (m_disabled)
             return;
-        SubsystemDevices.diffDrive.stopMotor();
+        SubsystemDevices.diffDriver.stopMotor();
     }
 
     // Drive using the tank method
     public void driveTank(double leftSpeed, double rightSpeed) {
         if (m_disabled)
             return;
-        SubsystemDevices.diffDrive.tankDrive(leftSpeed, rightSpeed);
+        SubsystemDevices.diffDriver.tankDrive(leftSpeed, rightSpeed);
     }
 
 }
