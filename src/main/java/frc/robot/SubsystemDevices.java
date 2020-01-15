@@ -13,6 +13,7 @@ public class SubsystemDevices {
 
     // Relays
     public static Relay relayLighter = new Relay(1);
+	public static Object talonSrxConveyor;
 
     // Motor Controllers
     public static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(9); // 1 motor
