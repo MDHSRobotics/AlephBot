@@ -18,7 +18,7 @@ public class Pickup extends SubsystemBase {
     public Pickup() {
         Logger.setup("Constructing Subsystem: Pickup...");
         if (pickupState) {
-            talonSrxPickup.set(0.5); //TODO add power
+            talonSrxPickup.set(0.5);
             boolean pickupState = true;
         } else {
             talonSrxPickup.stop();
