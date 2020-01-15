@@ -11,10 +11,13 @@ import frc.robot.EncoderUtils;
 import frc.robot.SubsystemDevices;
 
 // Pickup subsystem, for grabbing and releasing balls
-public class Pickup extends SubsystemBase{
+public class Pickup extends SubsystemBase {
 
+    
     public Pickup() {
         Logger.setup("Constructing Subsystem: Pickup...");
+        
+        }
     }
 
 
