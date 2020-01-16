@@ -25,6 +25,7 @@ public class Delivery extends SubsystemDevices {
         } else {
             SubsystemDevices.talonSRXDeliveryWheel.configOpenloopRamp(SECONDS_FROM_NEUTRAL_TO_FULL, TIMEOUT_MS);
         }
+
     }
 
     // @Override

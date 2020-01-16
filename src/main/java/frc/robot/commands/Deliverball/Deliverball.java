@@ -33,9 +33,9 @@ public class Deliverball extends CommandBase {
     public void end(boolean interrupted) {
         if (interrupted) {
             System.out.println("--");
-            Logger.ending("Interrupting Command: OpenHatchClaw...");
+            Logger.ending("Interrupting Command: ShootBall...");
         } else {
-            Logger.ending("Ending Command: OpenHatchClaw...");
+            Logger.ending("Ending Command: ShootBall...");
         }
 
         // m_shoot.stop();
