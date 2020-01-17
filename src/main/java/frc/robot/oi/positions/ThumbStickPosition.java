@@ -20,7 +20,7 @@ public class ThumbStickPosition {
     public ThumbStickPosition(double leftForwardBack, double leftSideToSide, double rightForwardBack, double rightSideToSide) {
         leftForwardBackPosition = leftForwardBack;
         leftSideToSidePosition = leftSideToSide;
-        rightSideToSidePosition = rightForwardBack;
+        rightForwardBackPosition = rightForwardBack;
         rightSideToSidePosition = rightSideToSide;
     }
 

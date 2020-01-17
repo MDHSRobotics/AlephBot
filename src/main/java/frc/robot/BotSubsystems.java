@@ -28,6 +28,9 @@ public class BotSubsystems {
         Logger.setup("Conveyor DefaultCommand -> StopConveyor...");
         conveyor.setDefaultCommand(BotCommands.stopConveyor);
 
+        Logger.setup("DiffDriver DefaultCommand -> DiffDriver...");
+        diffDriver.setDefaultCommand(BotCommands.diffDriver);
+
         Logger.setup("Lighter DefaultCommand -> CycleLights...");
         lighter.setDefaultCommand(BotCommands.cycleLights);
 
