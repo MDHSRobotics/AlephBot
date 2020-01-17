@@ -10,7 +10,8 @@ public class Deliverball extends CommandBase {
     // public ShootBall(Deliverball shoot) {
     //     Logger.setup("Constructing Command: ShootBall...");
 
-    //     // Add given subsystem requirements
+    //     // Add given subsystem requirement
+   // m_deliverball = Deliverball;
 
     // }
 
