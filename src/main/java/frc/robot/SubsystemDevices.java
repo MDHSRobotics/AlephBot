@@ -16,7 +16,8 @@ public class SubsystemDevices {
 
     // Motor Controllers
     // TODO: Add the appropriate motor controllers
-    public static WPI_TalonSRX talonSRXDeliveryWheel = new WPI_TalonSRX(1);
+    public static WPI_TalonSRX talonSRXDeliveryWheel1 = new WPI_TalonSRX(1);
+    public static WPI_TalonSRX talonSRXDeliveryWheel2 = new WPI_TalonSRX(2);
 
     // Drives
     // TODO: Add the appropriate drives
@@ -31,11 +32,11 @@ public class SubsystemDevices {
     }
 
     private static void initDeliveryDevices() {
-        boolean talonSRXDeliveryWheelIsConnected = isConnected(talonSRXDeliveryWheel);
+        boolean talonSRXDeliveryWheelIsConnected = isConnected(talonSRXDeliveryWheel1);
 
         if (!talonSRXDeliveryWheelIsConnected) {
             Logger.error("Delivery talons not connnected. Disabling...");
-            talonSRXDeliveryWheel = null;
+            talonSRXDeliveryWheel1 = null;
         }
     }
     // Determines if the Talon SRX is connected
