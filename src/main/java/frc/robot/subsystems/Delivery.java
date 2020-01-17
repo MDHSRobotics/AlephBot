@@ -33,7 +33,7 @@ public class Delivery extends SubsystemDevices {
     public void initDefaultCommand() {
     Logger.setup("Initializing Delivery DefaultCommand -> DeliveryStop...");
 
-    setDefaultCommand(new DeliveryStop());
+  //  setDefaultCommand(new DeliveryStop());
     }
 
     // Stop the delivery motor
