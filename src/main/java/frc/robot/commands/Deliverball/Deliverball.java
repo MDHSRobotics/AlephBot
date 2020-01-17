@@ -16,9 +16,6 @@ public class Deliverball extends CommandBase {
     addRequirements(m_delivery);
     }
 
-    private void addRequirements(Delivery m_delivery2) {
-    }
-
     @Override
     public void initialize() {
         Logger.action("Initializing Command: ShootBall...");

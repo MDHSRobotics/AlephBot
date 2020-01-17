@@ -1,66 +1,39 @@
 package frc.robot.subsystems;
 
 import frc.robot.consoles.Logger;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.SubsystemDevices;
 
 // Pulley subsystem for lifting the back end of robot up above a platform
-public class Delivery extends SubsystemDevices {
+public class Delivery extends SubsystemBase {
 
-    // Motor constants
-    private final double SECONDS_FROM_NEUTRAL_TO_FULL = 0;
-    private final int TIMEOUT_MS = 10;
-
-    // The Talon connection state, to prevent watchdog warnings during testing
-    private boolean m_talonsAreConnected = true;
-
-    //The delivery state, to toggle the delivery subsystem
-    public int speed;
+    // If not all the talons are initialized, this should be true
+    private boolean m_disabled = false;
 
     public Delivery() {
         Logger.setup("Constructing Subsystem: Delivery...");
 
-        if (!m_talonsAreConnected) {
-            Logger.error("Pulley talons not all connected! Disabling Delivery...");
-        } else {
-            SubsystemDevices.talonSRXDeliveryLeftWheel.configOpenloopRamp(SECONDS_FROM_NEUTRAL_TO_FULL, TIMEOUT_MS);
+        m_disabled = (SubsystemDevices.talonSRXDeliveryLeftWheel == null) && (SubsystemDevices.talonSRXDeliveryRightWheel == null);
+
+        if (m_disabled) {
+            Logger.error("Hatcher devices not initialized! Disabling subsystem...");
+            return;
         }
+        //configure the subsystem devices
+        SubsystemDevices.talonSRXDeliveryLeftWheel.configFactoryDefault();
+        SubsystemDevices.talonSRXDeliveryRightWheel.configFactoryDefault();
     }
-
-
-    // public void initDefaultCommand() {
-    // Logger.setup("Initializing Delivery DefaultCommand -> DeliveryStop...");
-
-  //  setDefaultCommand(new DeliveryStop());
-    // }
 
     // Stop the delivery motor
     public void stop() {
-        if (!m_talonsAreConnected)
-            return;
+        if (!m_disabled) return;
         SubsystemDevices.talonSRXDeliveryLeftWheel.stopMotor();
         SubsystemDevices.talonSRXDeliveryRightWheel.stopMotor();
     }
 
-    // Set the Delivery motor speed explicitly
-    public void setSpeed(final double speed) {
-        if (!m_talonsAreConnected)
-            return;
-        }
-
     public void spinWheels() {
         SubsystemDevices.talonSRXDeliveryLeftWheel.set(0.2);
         SubsystemDevices.talonSRXDeliveryRightWheel.set(-0.2);
-    }
-
-    //---------//
-    // Testing //
-    //---------//
-
-    public void testMotors() {
-        if (!m_talonsAreConnected)
-            return;
-        SubsystemDevices.talonSRXDeliveryLeftWheel.set(0.2);
-        SubsystemDevices.talonSRXDeliveryRightWheel.set(0.2);
     }
 
 }
