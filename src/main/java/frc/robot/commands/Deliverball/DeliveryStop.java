@@ -1,4 +1,4 @@
-package frc.robot.commands.Deliverball;
+package frc.robot.commands.DeliverBall;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 

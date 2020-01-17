@@ -1,19 +1,18 @@
-package frc.robot.commands.Deliverball;
+package frc.robot.commands.DeliverBall;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
+import frc.robot.SubsystemDevices;
 import frc.robot.consoles.Logger;
 
-public class Deliverball extends CommandBase {
+public class DeliverBall extends CommandBase {
 
-    // TODO: Make these constructor parameters. Use overloading for these default values.
-    // public ShootBall(Deliverball shoot) {
-    //     Logger.setup("Constructing Command: ShootBall...");
+    public DeliverBall() {
 
     //     // Add given subsystem requirement
    // m_deliverball = Deliverball;
 
     // }
+    }
 
     @Override
     public void initialize() {
@@ -22,7 +21,8 @@ public class Deliverball extends CommandBase {
 
     @Override
     public void execute() {
-
+        SubsystemDevices.talonSRXDeliveryLeftWheel.set(0.2);
+        SubsystemDevices.talonSRXDeliveryRightWheel.set(0.2);
     }
 
     @Override
@@ -39,6 +39,5 @@ public class Deliverball extends CommandBase {
             Logger.ending("Ending Command: ShootBall...");
         }
 
-        // m_shoot.stop();
     }
 }
