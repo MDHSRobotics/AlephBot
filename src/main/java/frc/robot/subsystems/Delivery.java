@@ -7,8 +7,8 @@ import frc.robot.SubsystemDevices;
 public class Delivery extends SubsystemDevices {
 
     // Motor constants
-    //private final double SECONDS_FROM_NEUTRAL_TO_FULL = 0;
-    //private final int TIMEOUT_MS = 10;
+    private final double SECONDS_FROM_NEUTRAL_TO_FULL = 0;
+    private final int TIMEOUT_MS = 10;
 
     // The Talon connection state, to prevent watchdog warnings during testing
     private boolean m_talonsAreConnected = true;
@@ -21,12 +21,17 @@ public class Delivery extends SubsystemDevices {
 
         if (!m_talonsAreConnected) {
             Logger.error("Pulley talons not all connected! Disabling Delivery...");
-        }/* else {
+        } else {
             SubsystemDevices.talonSRXDeliveryLeftWheel.configOpenloopRamp(SECONDS_FROM_NEUTRAL_TO_FULL, TIMEOUT_MS);
-        }*/
-
-
+        }
     }
+
+
+    // public void initDefaultCommand() {
+    // Logger.setup("Initializing Delivery DefaultCommand -> DeliveryStop...");
+
+  //  setDefaultCommand(new DeliveryStop());
+    // }
 
     // Stop the delivery motor
     public void stop() {
@@ -40,6 +45,11 @@ public class Delivery extends SubsystemDevices {
     public void setSpeed(final double speed) {
         if (!m_talonsAreConnected)
             return;
+        }
+
+    public void spinWheels() {
+        SubsystemDevices.talonSRXDeliveryLeftWheel.set(0.2);
+        SubsystemDevices.talonSRXDeliveryRightWheel.set(-0.2);
     }
 
     //---------//
