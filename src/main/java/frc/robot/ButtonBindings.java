@@ -23,6 +23,8 @@ public class ButtonBindings {
         Logger.setup("Configure Buttons -> Drive Xbox Controller...");
 
         ControlDevices.driveXboxBtnA.whileHeld(BotCommands.spinPickup);
+        ControlDevices.driveXboxBtnB.whenPressed(BotCommands.cycleLights);
+        ControlDevices.driveXboxBtnY.whenPressed(BotCommands.moveConveyor);
     }
 
 }
