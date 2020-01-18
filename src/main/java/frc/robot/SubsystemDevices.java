@@ -18,6 +18,7 @@ public class SubsystemDevices {
     // TODO: Add the appropriate motor controllers
     public static WPI_TalonSRX talonSRXDeliveryLeftWheel = new WPI_TalonSRX(1);
     public static WPI_TalonSRX talonSRXDeliveryRightWheel = new WPI_TalonSRX(2);
+
     // Drives
     // TODO: Add the appropriate drives
 
@@ -26,7 +27,7 @@ public class SubsystemDevices {
     public static void initializeDevices() {
         Logger.setup("Initializing SubsystemDevices...");
 
-        // TODO: Initialize the devices
+        //Initializes the devices
         initDeliveryDevices();
     }
 

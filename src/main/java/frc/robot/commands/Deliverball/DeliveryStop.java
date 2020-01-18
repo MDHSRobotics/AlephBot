@@ -1,16 +1,15 @@
-package frc.robot.commands.DeliverBall;
+package frc.robot.commands.Deliverball;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Delivery;
 
 // This command stops the Delivery motor
 public class DeliveryStop extends CommandBase {
 
-    private Delivery m_Delivery;
+    private Delivery m_delivery;
 
-    public DeliveryStop(Delivery Delivery) {
+    public DeliveryStop(Delivery delivery) {
         Logger.setup("Constructing Command: DeliveryStop...");
     }
 
@@ -21,7 +20,7 @@ public class DeliveryStop extends CommandBase {
 
     @Override
     public void execute() {
-        m_Delivery.stop();
+        m_delivery.stop();
     }
 
     // This command continues until interrupted
@@ -39,7 +38,7 @@ public class DeliveryStop extends CommandBase {
             Logger.ending("Ending Command: DeliveryStop...");
         }
 
-        m_Delivery.stop();
+        m_delivery.stop();
     }
 
 }

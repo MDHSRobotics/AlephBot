@@ -1,17 +1,16 @@
-package frc.robot.commands.DeliverBall;
+package frc.robot.commands.Deliverball;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Delivery;
 
-public class Deliverball extends CommandBase {
+public class DeliverBall extends CommandBase {
     private Delivery m_delivery;
 
-    // TODO: Make these constructor parameters. Use overloading for these default values.
-     public Deliverball(Delivery delivery) {
+     public DeliverBall(Delivery delivery) {
          Logger.setup("Constructing Command: ShootBall...");
 
-    //     // Add given subsystem requirement
+    // Add given subsystem requirement
     m_delivery = delivery;
     addRequirements(m_delivery);
     }

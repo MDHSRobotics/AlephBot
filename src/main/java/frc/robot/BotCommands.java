@@ -2,7 +2,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.DeliverBall.Deliverball;
+import frc.robot.commands.Deliverball.DeliverBall;
+import frc.robot.commands.Deliverball.DeliveryStop;
 import frc.robot.commands.lighter.*;
 import frc.robot.consoles.Logger;
 
@@ -10,14 +11,16 @@ import frc.robot.consoles.Logger;
 public class BotCommands {
 
     public static CycleLights cycleLights;
-    public static Deliverball deliverball;
+    public static DeliverBall deliverBall;
+    public static DeliveryStop deliveryStop;
 
     // Initialize all robot commands
     public static void initializeCommands() {
         Logger.setup("Initializing BotCommands...");
 
         cycleLights = new CycleLights(BotSubsystems.lighter);
-        deliverball = new Deliverball(BotSubsystems.delivery);
+        deliverBall = new DeliverBall(BotSubsystems.delivery);
+        deliveryStop = new DeliveryStop(BotSubsystems.delivery);
     }
 
     // Return the command to run in autonomous mode
