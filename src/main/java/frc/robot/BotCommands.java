@@ -4,6 +4,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.commands.conveyor.*;
+import frc.robot.commands.diffdriver.*;
 import frc.robot.commands.lighter.*;
 import frc.robot.commands.pickup.*;
 import frc.robot.consoles.Logger;
@@ -14,6 +15,9 @@ public class BotCommands {
     // Conveyor
     public static MoveConveyor moveConveyor;
     public static StopConveyor stopConveyor;
+
+    // DiffDriver
+    public static DriveDifferentialTank driveDifferentialTank;
 
     // Lighter
     public static CycleLights cycleLights;
@@ -29,6 +33,9 @@ public class BotCommands {
         // Conveyor
         moveConveyor = new MoveConveyor(BotSubsystems.conveyor);
         stopConveyor = new StopConveyor(BotSubsystems.conveyor);
+
+        // DiffDriver
+        driveDifferentialTank = new DriveDifferentialTank(BotSubsystems.diffDriver);
 
         // Lighter
         cycleLights = new CycleLights(BotSubsystems.lighter);
