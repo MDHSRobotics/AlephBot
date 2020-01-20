@@ -10,17 +10,23 @@ import frc.robot.consoles.Logger;
 // Contains singleton instances of all the commands on the robot.
 public class BotCommands {
 
+    // Lighter
     public static CycleLights cycleLights;
-    public static StopPickup stopPickup;
+
+    // Pickup
     public static SpinPickup spinPickup;
+    public static StopPickup stopPickup;
 
     // Initialize all robot commands
     public static void initializeCommands() {
         Logger.setup("Initializing BotCommands...");
 
+        // Lighter
         cycleLights = new CycleLights(BotSubsystems.lighter);
-        stopPickup = new StopPickup(BotSubsystems.pickup);
+
+        // Pickup
         spinPickup = new SpinPickup(BotSubsystems.pickup);
+        stopPickup = new StopPickup(BotSubsystems.pickup);
     }
 
     // Return the command to run in autonomous mode
