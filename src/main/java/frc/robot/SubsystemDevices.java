@@ -2,8 +2,9 @@
 package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.Relay;
+
 import frc.robot.consoles.Logger;
 
 // This class contains singleton instances of id mapped subsystem components, and utility methods.
