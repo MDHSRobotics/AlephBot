@@ -34,7 +34,7 @@ public class Devices {
     // Drive Declarations //
     ////////////////////////
 
-    public static DifferentialDrive diffDriver;
+    public static DifferentialDrive diffDrive;
 
     /////////////////////
     // Initializations //
@@ -91,7 +91,7 @@ public class Devices {
             talonSrxDiffWheelRearLeft = null;
             talonSrxDiffWheelRearRight = null;
         } else {
-            diffDriver = new DifferentialDrive(talonSrxDiffWheelFrontLeft, talonSrxDiffWheelFrontRight);
+            diffDrive = new DifferentialDrive(talonSrxDiffWheelFrontLeft, talonSrxDiffWheelFrontRight);
         }
     }
 
