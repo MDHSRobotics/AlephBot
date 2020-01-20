@@ -1,5 +1,5 @@
 
-package frc.robot;
+package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -7,29 +7,41 @@ import edu.wpi.first.wpilibj.Relay;
 
 import frc.robot.consoles.Logger;
 
-// This class contains singleton instances of id mapped subsystem components, and utility methods.
-// IMPORTANT: It is imperative that ONLY subsystems control any interactive device.
-// Also, only ONE subsystem should control any given device.
-public class SubsystemDevices {
+// This class contains singleton (static) instances of id mapped subsystem components.
+// If a device is not connected at initialization, it should be set to null.
+// IMPORTANT: Only ONE subsystem should control any given device.
+// Device instances are package-private (neither private nor public) so they can only be used by subsystems.
+public class Devices {
+
+    //////////////////////
+    // Device Instances //
+    //////////////////////
 
     // Relays
-    public static Relay relayLighter = new Relay(1);
+    static Relay relayLighter = new Relay(1);
 
-    // Motor Controllers
-    public static WPI_TalonSRX talonSrxDiffWheelFrontLeft = new WPI_TalonSRX(12); // 1 motor
-    public static WPI_TalonSRX talonSrxDiffWheelRearLeft = new WPI_TalonSRX(4); // 1 motor
-    public static WPI_TalonSRX talonSrxDiffWheelFrontRight = new WPI_TalonSRX(13); // 1 motor
-    public static WPI_TalonSRX talonSrxDiffWheelRearRight = new WPI_TalonSRX(14); // 1 motor
+    // TalonSRX
+    static WPI_TalonSRX talonSrxDiffWheelFrontLeft = new WPI_TalonSRX(12); // 1 motor
+    static WPI_TalonSRX talonSrxDiffWheelRearLeft = new WPI_TalonSRX(4); // 1 motor
+    static WPI_TalonSRX talonSrxDiffWheelFrontRight = new WPI_TalonSRX(13); // 1 motor
+    static WPI_TalonSRX talonSrxDiffWheelRearRight = new WPI_TalonSRX(14); // 1 motor
 
-    public static WPI_TalonSRX talonSrxConveyor = new WPI_TalonSRX(9);
-    public static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(9); // 1 motor
+    static WPI_TalonSRX talonSrxConveyor = new WPI_TalonSRX(9);
+    static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(9); // 1 motor
 
-    // Drives
+    ////////////////////////
+    // Drive Declarations //
+    ////////////////////////
+
     public static DifferentialDrive diffDriver;
+
+    /////////////////////
+    // Initializations //
+    /////////////////////
 
     // Intialize the subsystem devices
     public static void initializeDevices() {
-        Logger.setup("Initializing SubsystemDevices...");
+        Logger.setup("Initializing Devices...");
 
         initConveyorDevices();
         initDiffDriverDevices();
