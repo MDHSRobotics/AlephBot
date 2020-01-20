@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.Relay;
 
 import frc.robot.consoles.Logger;
+import frc.robot.subsystems.utils.DeviceUtils;
 
 // This class contains singleton (static) instances of id mapped subsystem components.
 // If a device is not connected at initialization, it should be set to null.
@@ -50,7 +51,7 @@ public class Devices {
 
     // Conveyor
     private static void initConveyorDevices() {
-        boolean talonSrxConveyorIsConnected = isConnected(talonSrxConveyor);
+        boolean talonSrxConveyorIsConnected = DeviceUtils.isConnected(talonSrxConveyor);
 
         if (!talonSrxConveyorIsConnected) {
             talonSrxConveyor = null;
@@ -60,10 +61,10 @@ public class Devices {
 
     // Differential Drive
     private static void initDiffDriverDevices() {
-        boolean talonSrxDiffWheelFrontLeftIsConnected = isConnected(talonSrxDiffWheelFrontLeft);
-        boolean talonSrxDiffWheelFrontRightIsConnected = isConnected(talonSrxDiffWheelFrontRight);
-        boolean talonSrxDiffWheelRearLeftIsConnected = isConnected(talonSrxDiffWheelRearLeft);
-        boolean talonSrxDiffWheelRearRightIsConnected = isConnected(talonSrxDiffWheelRearRight);
+        boolean talonSrxDiffWheelFrontLeftIsConnected = DeviceUtils.isConnected(talonSrxDiffWheelFrontLeft);
+        boolean talonSrxDiffWheelFrontRightIsConnected = DeviceUtils.isConnected(talonSrxDiffWheelFrontRight);
+        boolean talonSrxDiffWheelRearLeftIsConnected = DeviceUtils.isConnected(talonSrxDiffWheelRearLeft);
+        boolean talonSrxDiffWheelRearRightIsConnected = DeviceUtils.isConnected(talonSrxDiffWheelRearRight);
 
         boolean talonsAreConnected = true;
         if (!talonSrxDiffWheelFrontLeftIsConnected) {
@@ -96,19 +97,12 @@ public class Devices {
 
     // Pickup
     private static void initPickupDevices() {
-        boolean talonSrxPickupIsConnected = isConnected(talonSrxPickup);
+        boolean talonSrxPickupIsConnected = DeviceUtils.isConnected(talonSrxPickup);
 
         if (!talonSrxPickupIsConnected) {
             talonSrxPickup = null;
             Logger.error("Pickup talon is not connected! Disabling...");
         }
-    }
-
-    // Determines if the Talon SRX is connected
-    public static boolean isConnected(WPI_TalonSRX talon) {
-        int firmVer = talon.getFirmwareVersion();
-        boolean connected = (firmVer != -1);
-        return connected;
     }
 
 }
