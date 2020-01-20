@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Conveyor;
 
-// This command opens the Conveyor claw via encoder to grab the hatch, and keeps it there
+// This command moves the Conveyor to deliver the ball to the shooter
 public class MoveConveyor extends CommandBase {
 
     private Conveyor m_conveyor;
@@ -39,9 +39,9 @@ public class MoveConveyor extends CommandBase {
     public void end(boolean interrupted) {
         if (interrupted) {
             System.out.println("--");
-            Logger.ending("Interrupting Command: OpenHatchClaw...");
+            Logger.ending("Interrupting Command: MoveConveyor...");
         } else {
-            Logger.ending("Ending Command: OpenHatchClaw...");
+            Logger.ending("Ending Command: MoveConveyor...");
         }
 
         m_conveyor.stop();

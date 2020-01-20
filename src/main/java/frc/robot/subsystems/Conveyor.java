@@ -3,10 +3,10 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-import frc.robot.SubsystemDevices;
 import frc.robot.consoles.Logger;
+import frc.robot.SubsystemDevices;
 
-// Conveyor subsystem, for grabbing and releasing hatches
+// Conveyor subsystem, for moving a ball up to the shooter
 public class Conveyor extends SubsystemBase {
 
     // If not all the talons are initialized, this should be true
