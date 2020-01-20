@@ -15,16 +15,22 @@ public class SubsystemDevices {
     public static Relay relayLighter = new Relay(1);
 
     // Motor Controllers
-    // TODO: Add the appropriate motor controllers
-
-    // Drives
-    // TODO: Add the appropriate drives
+    public static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(9); // 1 motor
 
     // Intialize the subsystem devices
     public static void initializeDevices() {
         Logger.setup("Initializing SubsystemDevices...");
 
-        // TODO: Initialize the devices
+        initPickupDevices();
+    }
+
+    private static void initPickupDevices() {
+        boolean talonSrxPickupIsConnected = isConnected(talonSrxPickup);
+
+        if (!talonSrxPickupIsConnected) {
+            talonSrxPickup = null;
+            Logger.error("Pickup talon is not connected! Disabling...");
+        }
     }
 
     // Determines if the Talon SRX is connected
