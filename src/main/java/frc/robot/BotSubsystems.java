@@ -8,6 +8,7 @@ import frc.robot.subsystems.*;
 // IMPORTANT: When you make a new subsystem, you need to also set a default command.
 public class BotSubsystems {
 
+    public static Conveyor conveyor;
     public static Lighter lighter;
     public static Pickup pickup;
 
@@ -15,12 +16,16 @@ public class BotSubsystems {
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
 
+        conveyor = new Conveyor();
         lighter = new Lighter();
         pickup = new Pickup();
     }
 
     // Set all the subsystem default commands
     public static void setDefaultCommands() {
+        Logger.setup("Conveyor DefaultCommand -> StopConveyor...");
+        conveyor.setDefaultCommand(BotCommands.stopConveyor);
+
         Logger.setup("Lighter DefaultCommand -> CycleLights...");
         lighter.setDefaultCommand(BotCommands.cycleLights);
 
