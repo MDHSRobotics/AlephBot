@@ -7,7 +7,7 @@ import frc.robot.subsystems.Delivery;
 public class Deliverball extends CommandBase {
     private Delivery m_delivery;
 
-     public Deliverball(Delivery delivery) {
+    public Deliverball(Delivery delivery) {
          Logger.setup("Constructing Command: ShootBall...");
 
     // Add given subsystem requirement
