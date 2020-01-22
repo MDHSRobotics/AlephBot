@@ -2,7 +2,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
-
+import frc.robot.commands.auto.AutoPeriod;
 import frc.robot.commands.conveyor.*;
 import frc.robot.commands.diffdriver.*;
 import frc.robot.commands.lighter.*;
@@ -18,6 +18,7 @@ public class BotCommands {
 
     // DiffDriver
     public static DriveDifferentialTank driveDifferentialTank;
+    public static AutoPeriod autoPeriod;
 
     // Lighter
     public static CycleLights cycleLights;
@@ -36,6 +37,7 @@ public class BotCommands {
 
         // DiffDriver
         driveDifferentialTank = new DriveDifferentialTank(BotSubsystems.diffDriver);
+        autoPeriod = new AutoPeriod(BotSubsystems.autonomous);
 
         // Lighter
         cycleLights = new CycleLights(BotSubsystems.lighter);
@@ -47,7 +49,7 @@ public class BotCommands {
 
     // Return the command to run in autonomous mode
     public static Command getAutonomousCommand() {
-        return cycleLights;
+        return autoPeriod;
     }
 
 }
