@@ -32,6 +32,7 @@ public class Delivery extends SubsystemBase {
     }
 
     public void spinWheels() {
+        if (m_disabled) return;
         SubsystemDevices.talonSRXDeliveryLeftWheel.set(0.2);
         SubsystemDevices.talonSRXDeliveryRightWheel.set(-0.2);
     }
