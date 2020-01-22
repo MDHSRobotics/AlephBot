@@ -82,10 +82,8 @@ public class DiffDriver extends SubsystemBase {
 
     // Autonomously move forward
     public void moveForwardAuto() {
-        talonSrxDiffWheelFrontLeft.set(0.5);
-        talonSrxDiffWheelFrontRight.set(0.5);
-        talonSrxDiffWheelRearLeft.set(0.5);
-        talonSrxDiffWheelRearRight.set(0.5);
+        if (m_disabled) return;
+        diffDrive.tankDrive(0.5, 0.5);
     }
 
 }
