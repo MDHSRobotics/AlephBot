@@ -2,7 +2,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.auto.AutoPeriod;
+
+import frc.robot.commands.auto.*;
 import frc.robot.commands.conveyor.*;
 import frc.robot.commands.diffdriver.*;
 import frc.robot.commands.lighter.*;
@@ -12,13 +13,15 @@ import frc.robot.consoles.Logger;
 // Contains singleton instances of all the commands on the robot.
 public class BotCommands {
 
+    // Autonomous
+    public static AutoPeriod autoPeriod;
+
     // Conveyor
     public static MoveConveyor moveConveyor;
     public static StopConveyor stopConveyor;
 
     // DiffDriver
     public static DriveDifferentialTank driveDifferentialTank;
-    public static AutoPeriod autoPeriod;
 
     // Lighter
     public static CycleLights cycleLights;
@@ -31,13 +34,15 @@ public class BotCommands {
     public static void initializeCommands() {
         Logger.setup("Initializing BotCommands...");
 
+        // Autonomous
+        autoPeriod = new AutoPeriod(BotSubsystems.autonomous);
+
         // Conveyor
         moveConveyor = new MoveConveyor(BotSubsystems.conveyor);
         stopConveyor = new StopConveyor(BotSubsystems.conveyor);
 
         // DiffDriver
         driveDifferentialTank = new DriveDifferentialTank(BotSubsystems.diffDriver);
-        autoPeriod = new AutoPeriod(BotSubsystems.autonomous);
 
         // Lighter
         cycleLights = new CycleLights(BotSubsystems.lighter);
