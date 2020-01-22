@@ -22,13 +22,13 @@ public class Devices {
     static Relay relayLighter = new Relay(1);
 
     // TalonSRX
-    static WPI_TalonSRX talonSrxDiffWheelFrontLeft = new WPI_TalonSRX(12); // 1 motor
-    static WPI_TalonSRX talonSrxDiffWheelRearLeft = new WPI_TalonSRX(4); // 1 motor
-    static WPI_TalonSRX talonSrxDiffWheelFrontRight = new WPI_TalonSRX(13); // 1 motor
-    static WPI_TalonSRX talonSrxDiffWheelRearRight = new WPI_TalonSRX(14); // 1 motor
+    static WPI_TalonSRX talonSrxDiffWheelFrontLeft = new WPI_TalonSRX(87); // 1 motor
+    static WPI_TalonSRX talonSrxDiffWheelRearLeft = new WPI_TalonSRX(15); // 1 motor
+    static WPI_TalonSRX talonSrxDiffWheelFrontRight = new WPI_TalonSRX(11); // 1 motor
+    static WPI_TalonSRX talonSrxDiffWheelRearRight = new WPI_TalonSRX(19); // 1 motor
 
     static WPI_TalonSRX talonSrxConveyor = new WPI_TalonSRX(9);
-    static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(9); // 1 motor
+    static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(2); // 1 motor
 
     ////////////////////////
     // Drive Declarations //

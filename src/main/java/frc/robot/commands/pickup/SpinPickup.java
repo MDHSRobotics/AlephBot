@@ -32,7 +32,7 @@ public class SpinPickup extends CommandBase {
     // This command ends immediately
     @Override
     public boolean isFinished() {
-        return true;
+        return false;
     }
 
     @Override
