@@ -12,6 +12,7 @@ public class BotSubsystems {
     public static DiffDriver diffDriver;
     public static Lighter lighter;
     public static Pickup pickup;
+    public static ColorWheel colorwheel;
 
     // Initialize all robot subsystems
     public static void initializeSubsystems() {
@@ -21,6 +22,7 @@ public class BotSubsystems {
         diffDriver = new DiffDriver();
         lighter = new Lighter();
         pickup = new Pickup();
+        colorwheel = new ColorWheel();
     }
 
     // Set all the subsystem default commands

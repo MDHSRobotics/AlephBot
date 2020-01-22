@@ -28,7 +28,10 @@ public class Devices {
     static WPI_TalonSRX talonSrxDiffWheelRearRight = new WPI_TalonSRX(19); // 1 motor
 
     static WPI_TalonSRX talonSrxConveyor = new WPI_TalonSRX(9);
+
     static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(2); // 1 motor
+
+    static WPI_TalonSRX talonSrxColorWheel = new WPI_TalonSRX(4); // 1 motor
 
     ////////////////////////
     // Drive Declarations //
@@ -47,6 +50,7 @@ public class Devices {
         initConveyorDevices();
         initDiffDriverDevices();
         initPickupDevices();
+        initColorWheelDevices();
     }
 
     // Conveyor
@@ -105,4 +109,12 @@ public class Devices {
         }
     }
 
+    private static void initColorWheelDevices() {
+        boolean talonSrxColorWheelIsConnected = DeviceUtils.isConnected(talonSrxColorWheel);
+
+        if (!talonSrxColorWheelIsConnected) {
+            talonSrxColorWheel = null;
+            Logger.error("Color Wheel talon is not connected! Disabling...");
+        }
+    }
 }
