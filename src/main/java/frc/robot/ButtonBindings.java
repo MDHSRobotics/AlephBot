@@ -23,7 +23,6 @@ public class ButtonBindings {
         Logger.setup("Configure Buttons -> Drive Xbox Controller...");
 
         ControlDevices.driveXboxBtnA.whileHeld(BotCommands.deliverBall);
-        ControlDevices.driveXboxBtnB.whenPressed(BotCommands.deliveryStop);
     }
 
 }

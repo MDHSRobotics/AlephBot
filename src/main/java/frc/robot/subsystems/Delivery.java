@@ -16,7 +16,7 @@ public class Delivery extends SubsystemBase {
         m_disabled = (SubsystemDevices.talonSRXDeliveryLeftWheel == null) && (SubsystemDevices.talonSRXDeliveryRightWheel == null);
 
         if (m_disabled) {
-            Logger.error("Hatcher devices not initialized! Disabling subsystem...");
+            Logger.error("Delivey devices not initialized! Disabling subsystem...");
             return;
         }
         //configure the subsystem devices
@@ -26,7 +26,7 @@ public class Delivery extends SubsystemBase {
 
     // Stop the delivery motor
     public void stop() {
-        if (!m_disabled) return;
+        if (m_disabled) return;
         SubsystemDevices.talonSRXDeliveryLeftWheel.stopMotor();
         SubsystemDevices.talonSRXDeliveryRightWheel.stopMotor();
     }

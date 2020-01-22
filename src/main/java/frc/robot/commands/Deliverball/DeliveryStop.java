@@ -11,6 +11,9 @@ public class DeliveryStop extends CommandBase {
 
     public DeliveryStop(Delivery delivery) {
         Logger.setup("Constructing Command: DeliveryStop...");
+
+        m_delivery = delivery;
+        addRequirements(m_delivery);
     }
 
     @Override
@@ -37,7 +40,6 @@ public class DeliveryStop extends CommandBase {
         } else {
             Logger.ending("Ending Command: DeliveryStop...");
         }
-
         m_delivery.stop();
     }
 
