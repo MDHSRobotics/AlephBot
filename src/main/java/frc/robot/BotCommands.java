@@ -2,7 +2,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
-
+import frc.robot.commands.colorwheel.SpinColorWheel;
+import frc.robot.commands.colorwheel.StopColorWheel;
 import frc.robot.commands.conveyor.*;
 import frc.robot.commands.diffdriver.*;
 import frc.robot.commands.lighter.*;
@@ -25,6 +26,10 @@ public class BotCommands {
     // Pickup
     public static SpinPickup spinPickup;
     public static StopPickup stopPickup;
+
+    // Color Wheel
+    public static SpinColorWheel spinColorWheel;
+    public static StopColorWheel stopColorWheel;
 
     // Initialize all robot commands
     public static void initializeCommands() {

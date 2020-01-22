@@ -1,35 +1,34 @@
 
-package frc.robot.commands.pickup;
+package frc.robot.commands.colorwheel;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.consoles.Logger;
-import frc.robot.subsystems.Pickup;
+import frc.robot.subsystems.ColorWheel;
 
 // This command stops the Pickup motor
-public class StopPickup extends CommandBase {
+public class StopColorWheel extends CommandBase {
 
-    private Pickup m_pickup;
+    private ColorWheel m_colorwheel;
 
-    public StopPickup(Pickup pickup) {
-        Logger.setup("Constructing Command: StopPickup...");
+    public StopColorWheel(ColorWheel colorwheel) {
+        Logger.setup("Constructing Command: StopColorWheel...");
 
         // Add given subsystem requirements
-        m_pickup = pickup;
-        addRequirements(m_pickup);
+        m_colorwheel = colorwheel;
+        addRequirements(m_colorwheel);
     }
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: StopPickup...");
+        Logger.action("Initializing Command: StopColorWheel...");
     }
 
     @Override
     public void execute() {
-        m_pickup.stop();
+        m_colorwheel.stopWheel();
     }
 
-    // This command continues until interrupted
     @Override
     public boolean isFinished() {
         return false;
@@ -39,12 +38,12 @@ public class StopPickup extends CommandBase {
     public void end(boolean interrupted) {
         if (interrupted) {
             System.out.println("--");
-            Logger.ending("Interrupting Command: StopPickup...");
+            Logger.ending("Interrupting Command: StopColorWheel...");
         } else {
-            Logger.ending("Ending Command: StopPickup...");
+            Logger.ending("Ending Command: StopColorWheel...");
         }
 
-        m_pickup.stop();
+        m_colorwheel.stopWheel();
     }
 
 }

@@ -4,32 +4,31 @@ package frc.robot.commands.colorwheel;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.consoles.Logger;
-import frc.robot.subsystems.Pickup;
+import frc.robot.subsystems.ColorWheel;
 
 // This command spins the Pickup motor
 public class SpinColorWheel extends CommandBase {
 
-    private Pickup m_pickup;
+    private ColorWheel m_colorwheel;
 
-    public SpinPickup(Pickup pickup) {
-        Logger.setup("Constructing Command: SpinPickup...");
+    public SpinColorWheel(ColorWheel colorwheel) {
+        Logger.setup("Constructing Command: SpinColorWheel...");
 
         // Add given subsystem requirements
-        m_pickup = pickup;
-        addRequirements(m_pickup);
+        m_colorwheel = colorwheel;
+        addRequirements(m_colorwheel);
     }
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: SpinPickup...");
+        Logger.action("Initializing Command: SpinColorWheel...");
     }
 
     @Override
     public void execute() {
-        m_pickup.spin();
+        m_colorwheel.spinWheel();
     }
 
-    // This command ends immediately
     @Override
     public boolean isFinished() {
         return false;
@@ -39,12 +38,12 @@ public class SpinColorWheel extends CommandBase {
     public void end(boolean interrupted) {
         if (interrupted) {
             System.out.println("--");
-            Logger.ending("Interrupting Command: SpinPickup...");
+            Logger.ending("Interrupting Command: SpinColorWheel...");
         } else {
-            Logger.ending("Ending Command: SpinPickup...");
+            Logger.ending("Ending Command: SpinColorWheel...");
         }
 
-        m_pickup.stop();
+        m_colorwheel.stopWheel();
     }
 
 }
