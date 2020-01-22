@@ -4,23 +4,23 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.consoles.Logger;
-import frc.robot.subsystems.Autonomous;
+import frc.robot.subsystems.DiffDriver;
 
 public class AutoPeriod extends CommandBase {
 
-    private Autonomous m_autonomous;
+    private DiffDriver m_diffDriver;
 
     private Timer m_timer = new Timer();
     private double m_timeLastPrinted = 0.0;
 
     private static final double MAX_DRIVE_SECONDS = 5.0;
 
-    public AutoPeriod(Autonomous autonomous) {
+    public AutoPeriod(DiffDriver diffDriver) {
         Logger.setup("Constructing Command: AutoPeriod...");
 
         // Add given subsystem requirements
-        m_autonomous = autonomous;
-        addRequirements(m_autonomous);
+        m_diffDriver = diffDriver;
+        addRequirements(m_diffDriver);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class AutoPeriod extends CommandBase {
             m_timeLastPrinted = currentTime;
         }
 
-        m_autonomous.moveForwardAuto(); // drive forwards
+        m_diffDriver.moveForwardAuto(); // driveforwards
     }
 
     // This command continues until it MAX_DRIVE_SECONDS is reached

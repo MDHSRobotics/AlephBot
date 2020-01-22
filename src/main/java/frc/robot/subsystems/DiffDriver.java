@@ -80,4 +80,12 @@ public class DiffDriver extends SubsystemBase {
         diffDrive.tankDrive(leftSpeed, rightSpeed);
     }
 
+    // Autonomously move forward
+    public void moveForwardAuto() {
+        talonSrxDiffWheelFrontLeft.set(0.5);
+        talonSrxDiffWheelFrontRight.set(0.5);
+        talonSrxDiffWheelRearLeft.set(0.5);
+        talonSrxDiffWheelRearRight.set(0.5);
+    }
+
 }

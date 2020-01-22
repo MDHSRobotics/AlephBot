@@ -35,7 +35,7 @@ public class BotCommands {
         Logger.setup("Initializing BotCommands...");
 
         // Autonomous
-        autoPeriod = new AutoPeriod(BotSubsystems.autonomous);
+        autoPeriod = new AutoPeriod(BotSubsystems.diffDriver);
 
         // Conveyor
         moveConveyor = new MoveConveyor(BotSubsystems.conveyor);
