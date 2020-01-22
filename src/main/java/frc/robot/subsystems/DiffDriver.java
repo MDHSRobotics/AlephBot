@@ -80,4 +80,10 @@ public class DiffDriver extends SubsystemBase {
         diffDrive.tankDrive(leftSpeed, rightSpeed);
     }
 
+    // Autonomously move forward
+    public void moveForwardAuto() {
+        if (m_disabled) return;
+        diffDrive.tankDrive(0.5, 0.5);
+    }
+
 }

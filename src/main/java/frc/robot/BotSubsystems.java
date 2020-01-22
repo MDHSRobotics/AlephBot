@@ -12,7 +12,6 @@ public class BotSubsystems {
     public static DiffDriver diffDriver;
     public static Lighter lighter;
     public static Pickup pickup;
-    public static Autonomous autonomous;
 
     // Initialize all robot subsystems
     public static void initializeSubsystems() {
@@ -22,7 +21,7 @@ public class BotSubsystems {
         diffDriver = new DiffDriver();
         lighter = new Lighter();
         pickup = new Pickup();
-        autonomous = new Autonomous();
+
     }
 
     // Set all the subsystem default commands
@@ -39,8 +38,6 @@ public class BotSubsystems {
         Logger.setup("Pickup DefaultCommand -> StopPickup...");
         pickup.setDefaultCommand(BotCommands.stopPickup);
 
-        Logger.setup("Autonomous DefaultCommand -> AutoPeriod...");
-        autonomous.setDefaultCommand(BotCommands.autoPeriod);
     }
 
 }
