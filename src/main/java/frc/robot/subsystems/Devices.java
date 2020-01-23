@@ -114,15 +114,26 @@ public class Devices {
         boolean talonSRXShooterLeftWheelIsConnected = DeviceUtils.isConnected(talonSRXShooterLeftWheel);
         boolean talonSRXShooterRightWheelIsConnected = DeviceUtils.isConnected(talonSRXShooterRightWheel);
 
+        boolean talonsAreConnected = true;
+
         if (!talonSRXShooterLeftWheelIsConnected) {
-            Logger.error("Shooter left wheel talon not connnected. Disabling...");
-            talonSRXShooterLeftWheel = null;
+            talonsAreConnected = false;
+            Logger.error("ShooterLeftWheel talon is not connected!");
         }
 
         if (!talonSRXShooterRightWheelIsConnected) {
-            Logger.error("Shooter right wheel talon not connnected. Disabling...");
-            talonSRXShooterRightWheel = null;
+            talonsAreConnected = false;
+            Logger.error("ShooterRightWheel talon is not connected!");
         }
+
+        if (!talonsAreConnected) {
+            Logger.error("Shooter devices not all connected! Disabling...");
+            talonSRXShooterLeftWheel = null;
+            talonSRXShooterRightWheel = null;
+
+        }
+
+
     }
 
 }
