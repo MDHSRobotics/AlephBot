@@ -30,6 +30,9 @@ public class Devices {
     static WPI_TalonSRX talonSrxConveyor = new WPI_TalonSRX(9);
     static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(2); // 1 motor
 
+    static WPI_TalonSRX talonSRXShooterLeftWheel = new WPI_TalonSRX(2);
+    static WPI_TalonSRX talonSRXShooterRightWheel = new WPI_TalonSRX(4);
+
     ////////////////////////
     // Drive Declarations //
     ////////////////////////
@@ -47,6 +50,7 @@ public class Devices {
         initConveyorDevices();
         initDiffDriverDevices();
         initPickupDevices();
+        initShooterDevices();
     }
 
     // Conveyor
@@ -102,6 +106,22 @@ public class Devices {
         if (!talonSrxPickupIsConnected) {
             talonSrxPickup = null;
             Logger.error("Pickup talon is not connected! Disabling...");
+        }
+    }
+
+    // Shooter
+    private static void initShooterDevices() {
+        boolean talonSRXShooterLeftWheelIsConnected = DeviceUtils.isConnected(talonSRXShooterLeftWheel);
+        boolean talonSRXShooterRightWheelIsConnected = DeviceUtils.isConnected(talonSRXShooterRightWheel);
+
+        if (!talonSRXShooterLeftWheelIsConnected) {
+            Logger.error("Shooter left wheel talon not connnected. Disabling...");
+            talonSRXShooterLeftWheel = null;
+        }
+
+        if (!talonSRXShooterRightWheelIsConnected) {
+            Logger.error("Shooter right wheel talon not connnected. Disabling...");
+            talonSRXShooterRightWheel = null;
         }
     }
 

@@ -8,6 +8,7 @@ import frc.robot.commands.conveyor.*;
 import frc.robot.commands.diffdriver.*;
 import frc.robot.commands.lighter.*;
 import frc.robot.commands.pickup.*;
+import frc.robot.commands.shooter.*;
 import frc.robot.consoles.Logger;
 
 // Contains singleton instances of all the commands on the robot.
@@ -30,6 +31,10 @@ public class BotCommands {
     public static SpinPickup spinPickup;
     public static StopPickup stopPickup;
 
+    // Shooter
+    public static ShootBall shootBall;
+    public static StopShooter stopShooter;
+
     // Initialize all robot commands
     public static void initializeCommands() {
         Logger.setup("Initializing BotCommands...");
@@ -50,6 +55,10 @@ public class BotCommands {
         // Pickup
         spinPickup = new SpinPickup(BotSubsystems.pickup);
         stopPickup = new StopPickup(BotSubsystems.pickup);
+
+        // Shooter
+        shootBall = new ShootBall(BotSubsystems.shooter);
+        stopShooter = new StopShooter(BotSubsystems.shooter);
     }
 
     // Return the command to run in autonomous mode
