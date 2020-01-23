@@ -1,13 +1,13 @@
-package frc.robot.commands.Deliverball;
+package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.consoles.Logger;
-import frc.robot.subsystems.Delivery;
+import frc.robot.subsystems.Shooter;
 
-public class Deliverball extends CommandBase {
-    private Delivery m_delivery;
+public class ShootBall extends CommandBase {
+    private Shooter m_delivery;
 
-    public Deliverball(Delivery delivery) {
+    public ShootBall(Shooter delivery) {
          Logger.setup("Constructing Command: ShootBall...");
 
     // Add given subsystem requirement

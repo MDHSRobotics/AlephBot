@@ -15,35 +15,35 @@ public class SubsystemDevices {
     public static Relay relayLighter = new Relay(1);
 
     // Motor Controllers
-    // TODO: Add the appropriate motor controllers
-    public static WPI_TalonSRX talonSRXDeliveryLeftWheel = new WPI_TalonSRX(2);
-    public static WPI_TalonSRX talonSRXDeliveryRightWheel = new WPI_TalonSRX(4);
+    public static WPI_TalonSRX talonSRXShooterLeftWheel = new WPI_TalonSRX(2);
+    public static WPI_TalonSRX talonSRXShooterRightWheel = new WPI_TalonSRX(4);
 
     // Drives
     // TODO: Add the appropriate drives
-
 
     // Intialize the subsystem devices
     public static void initializeDevices() {
         Logger.setup("Initializing SubsystemDevices...");
 
         //Initializes the devices
-        initDeliveryDevices();
+        initShooterDevices();
     }
 
-    private static void initDeliveryDevices() {
-        boolean talonSRXDeliveryLeftIsConnected = isConnected(talonSRXDeliveryLeftWheel);
-        boolean talonSRXDeliveryRightIsConnected = isConnected(talonSRXDeliveryRightWheel);
+    private static void initShooterDevices() {
+        boolean talonSRXShooterLeftWheelIsConnected = isConnected(talonSRXShooterLeftWheel);
+        boolean talonSRXShooterRightWheelIsConnected = isConnected(talonSRXShooterRightWheel);
 
-        if (!talonSRXDeliveryLeftIsConnected) {
-            Logger.error("Delivery talons not connnected. Disabling...");
-            talonSRXDeliveryLeftWheel = null;
+        if (!talonSRXShooterLeftWheelIsConnected) {
+            Logger.error("Shooter left wheel talon not connnected. Disabling...");
+            talonSRXShooterLeftWheel = null;
         }
-        if (!talonSRXDeliveryRightIsConnected) {
-            Logger.error("Delivery talons not connnected. Disabling...");
-            talonSRXDeliveryRightWheel = null;
+
+        if (!talonSRXShooterRightWheelIsConnected) {
+            Logger.error("Shooter right wheel talon not connnected. Disabling...");
+            talonSRXShooterRightWheel = null;
         }
     }
+
     // Determines if the Talon SRX is connected
     public static boolean isConnected(WPI_TalonSRX talon) {
         int firmVer = talon.getFirmwareVersion();

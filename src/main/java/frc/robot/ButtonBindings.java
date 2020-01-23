@@ -22,7 +22,7 @@ public class ButtonBindings {
     public static void configureDriveXBoxButtons() {
         Logger.setup("Configure Buttons -> Drive Xbox Controller...");
 
-        ControlDevices.driveXboxBtnA.whileHeld(BotCommands.deliverBall);
+        ControlDevices.driveXboxBtnA.whileHeld(BotCommands.shootBall);
     }
 
 }

@@ -9,14 +9,14 @@ import frc.robot.subsystems.*;
 public class BotSubsystems {
 
     public static Lighter lighter;
-    public static Delivery delivery;
+    public static Shooter shooter;
 
     // Initialize all robot subsystems
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
 
         lighter = new Lighter();
-        delivery = new Delivery();
+        shooter = new Shooter();
     }
 
     // Set all the subsystem default commands
@@ -24,8 +24,8 @@ public class BotSubsystems {
         Logger.setup("Lighter DefaultCommand -> CycleLights...");
         lighter.setDefaultCommand(BotCommands.cycleLights);
 
-        Logger.setup("Delivery DefaultCommand -> DeliveryStop...");
-        delivery.setDefaultCommand(BotCommands.deliveryStop);
+        Logger.setup("Delivery DefaultCommand -> StopShooter...");
+        shooter.setDefaultCommand(BotCommands.stopShooter);
     }
 
 }
