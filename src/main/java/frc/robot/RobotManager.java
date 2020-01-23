@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.consoles.Logger;
 import frc.robot.consoles.Shuffler;
+import frc.robot.subsystems.Devices;
 
 // This is where the robot state is initialized and persisted.
 public class RobotManager {
@@ -38,10 +39,10 @@ public class RobotManager {
 
     // It is important that the robot be initialized in exactly this order.
     public static void initialize() {
-        Logger.setup("Initializing BotManager...");
+        Logger.setup("Initializing RobotManager...");
 
-        // Initialize SubsystemDevices
-        SubsystemDevices.initializeDevices();
+        // Initialize subsystem Devices
+        Devices.initializeDevices();
 
         // Pre-intialize the Shuffler
         botShuffler = new Shuffler();

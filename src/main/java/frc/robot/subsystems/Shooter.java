@@ -3,7 +3,6 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.consoles.Logger;
-import frc.robot.SubsystemDevices;
 
 // Subsystem for shooting balls
 public class Shooter extends SubsystemBase {
@@ -14,28 +13,28 @@ public class Shooter extends SubsystemBase {
     public Shooter() {
         Logger.setup("Constructing Subsystem: Shooter...");
 
-        m_disabled = (SubsystemDevices.talonSRXShooterLeftWheel == null) && (SubsystemDevices.talonSRXShooterRightWheel == null);
+        m_disabled = (Devices.talonSRXShooterLeftWheel == null) && (Devices.talonSRXShooterRightWheel == null);
 
         if (m_disabled) {
             Logger.error("Shoooter devices not initialized! Disabling subsystem...");
             return;
         }
         //configure the subsystem devices
-        SubsystemDevices.talonSRXShooterLeftWheel.configFactoryDefault();
-        SubsystemDevices.talonSRXShooterRightWheel.configFactoryDefault();
+        Devices.talonSRXShooterLeftWheel.configFactoryDefault();
+        Devices.talonSRXShooterRightWheel.configFactoryDefault();
     }
 
     // Stop the shooter motor
     public void stop() {
         if (m_disabled) return;
-        SubsystemDevices.talonSRXShooterLeftWheel.stopMotor();
-        SubsystemDevices.talonSRXShooterRightWheel.stopMotor();
+        Devices.talonSRXShooterLeftWheel.stopMotor();
+        Devices.talonSRXShooterRightWheel.stopMotor();
     }
 
     public void spinWheels() {
         if (m_disabled) return;
-        SubsystemDevices.talonSRXShooterLeftWheel.set(0.2);
-        SubsystemDevices.talonSRXShooterRightWheel.set(-0.2);
+        Devices.talonSRXShooterLeftWheel.set(0.2);
+        Devices.talonSRXShooterRightWheel.set(-0.2);
     }
 
 }
