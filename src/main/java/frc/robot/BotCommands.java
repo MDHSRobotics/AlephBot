@@ -48,6 +48,10 @@ public class BotCommands {
         // Pickup
         spinPickup = new SpinPickup(BotSubsystems.pickup);
         stopPickup = new StopPickup(BotSubsystems.pickup);
+
+        // Color Wheel
+        spinColorWheel = new SpinColorWheel(BotSubsystems.colorwheel);
+        stopColorWheel = new StopColorWheel(BotSubsystems.colorwheel);
     }
 
     // Return the command to run in autonomous mode
