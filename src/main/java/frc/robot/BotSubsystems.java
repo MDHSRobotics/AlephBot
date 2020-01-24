@@ -40,7 +40,7 @@ public class BotSubsystems {
         pickup.setDefaultCommand(BotCommands.stopPickup);
 
         Logger.setup("Pickup DefaultCommand -> StopColorWheel...");
-        pickup.setDefaultCommand(BotCommands.stopColorWheel);
+        colorwheel.setDefaultCommand(BotCommands.stopColorWheel);
     }
 
 }
