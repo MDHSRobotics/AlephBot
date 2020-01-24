@@ -33,8 +33,8 @@ public class Shooter extends SubsystemBase {
 
     public void spinWheels() {
         if (m_disabled) return;
-        Devices.talonSRXShooterLeftWheel.set(0.2);
-        Devices.talonSRXShooterRightWheel.set(-0.2);
+        Devices.talonSRXShooterLeftWheel.set(0.8);
+        Devices.talonSRXShooterRightWheel.set(0.8);
     }
 
 }

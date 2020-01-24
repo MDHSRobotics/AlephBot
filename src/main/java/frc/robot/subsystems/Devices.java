@@ -30,8 +30,8 @@ public class Devices {
     static WPI_TalonSRX talonSrxConveyor = new WPI_TalonSRX(9);
     static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(2); // 1 motor
 
-    static WPI_TalonSRX talonSRXShooterLeftWheel = new WPI_TalonSRX(2);
-    static WPI_TalonSRX talonSRXShooterRightWheel = new WPI_TalonSRX(4);
+    static WPI_TalonSRX talonSRXShooterLeftWheel = new WPI_TalonSRX(4);
+    static WPI_TalonSRX talonSRXShooterRightWheel = new WPI_TalonSRX(2);
 
     ////////////////////////
     // Drive Declarations //
