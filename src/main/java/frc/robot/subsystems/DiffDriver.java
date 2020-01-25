@@ -4,6 +4,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.consoles.Logger;
+
 import static frc.robot.subsystems.Devices.diffDrive;
 import static frc.robot.subsystems.Devices.talonSrxDiffWheelFrontLeft;
 import static frc.robot.subsystems.Devices.talonSrxDiffWheelFrontRight;
