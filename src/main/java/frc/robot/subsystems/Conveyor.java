@@ -10,7 +10,7 @@ import static frc.robot.subsystems.Devices.talonSrxConveyor;
 // Conveyor subsystem, for moving a ball up to the shooter
 public class Conveyor extends SubsystemBase {
 
-    // If not all the motor controllers are initialized, this should be true
+    // If any of the motor controllers are null, this should be true
     private boolean m_disabled = false;
 
     public Conveyor() {

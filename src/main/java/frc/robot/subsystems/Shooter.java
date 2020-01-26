@@ -10,7 +10,7 @@ import static frc.robot.subsystems.Devices.talonSrxShooterRightWheel;
 // Subsystem for shooting balls
 public class Shooter extends SubsystemBase {
 
-    // If not all the motor controllers are initialized, this should be true
+    // If any of the motor controllers are null, this should be true
     private boolean m_disabled = false;
 
     public Shooter() {
