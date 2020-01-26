@@ -21,7 +21,7 @@ public class DiffDriver extends SubsystemBase {
     private final double SECONDS_FROM_NEUTRAL_TO_FULL = 0;
     private final int TIMEOUT_MS = 10;
 
-    // If not all the talons are initialized, this should be true
+    // If not all the motor controllers are initialized, this should be true
     private boolean m_disabled = false;
 
     public DiffDriver() {

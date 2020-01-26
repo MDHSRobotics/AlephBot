@@ -30,8 +30,8 @@ public class Devices {
     static WPI_TalonSRX talonSrxConveyor = new WPI_TalonSRX(9);
     static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(2); // 1 motor
 
-    static WPI_TalonSRX talonSRXShooterLeftWheel = new WPI_TalonSRX(4);
-    static WPI_TalonSRX talonSRXShooterRightWheel = new WPI_TalonSRX(2);
+    static WPI_TalonSRX talonSrxShooterLeftWheel = new WPI_TalonSRX(4);
+    static WPI_TalonSRX talonSrxShooterRightWheel = new WPI_TalonSRX(2);
 
     ////////////////////////
     // Drive Declarations //
@@ -45,7 +45,7 @@ public class Devices {
 
     // Intialize the subsystem devices
     public static void initializeDevices() {
-        Logger.setup("Initializing Devices...");
+        Logger.setup("Initializing subsystem Devices...");
 
         initConveyorDevices();
         initDiffDriverDevices();
@@ -111,8 +111,8 @@ public class Devices {
 
     // Shooter
     private static void initShooterDevices() {
-        boolean talonSRXShooterLeftWheelIsConnected = DeviceUtils.isConnected(talonSRXShooterLeftWheel);
-        boolean talonSRXShooterRightWheelIsConnected = DeviceUtils.isConnected(talonSRXShooterRightWheel);
+        boolean talonSRXShooterLeftWheelIsConnected = DeviceUtils.isConnected(talonSrxShooterLeftWheel);
+        boolean talonSRXShooterRightWheelIsConnected = DeviceUtils.isConnected(talonSrxShooterRightWheel);
 
         boolean talonsAreConnected = true;
 
@@ -128,8 +128,8 @@ public class Devices {
 
         if (!talonsAreConnected) {
             Logger.error("Shooter devices not all connected! Disabling...");
-            talonSRXShooterLeftWheel = null;
-            talonSRXShooterRightWheel = null;
+            talonSrxShooterLeftWheel = null;
+            talonSrxShooterRightWheel = null;
 
         }
 

@@ -10,6 +10,7 @@ package frc.robot.subsystems.constants;
  * constants are needed, to reduce verbosity.
  */
 public final class TalonConstants {
+
     // Number of miliseconds that the talon can stay at peak current.
     public static final int PEAK_AMPERAGE_DURATION = 40;
 
