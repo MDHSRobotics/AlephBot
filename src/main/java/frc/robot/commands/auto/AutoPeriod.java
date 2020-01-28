@@ -43,7 +43,6 @@ public class AutoPeriod extends CommandBase {
 
         m_diffDriver.moveForwardAuto(); // driveforwards
     }
-
     // This command continues until it MAX_DRIVE_SECONDS is reached
     @Override
     public boolean isFinished() {
