@@ -2,9 +2,8 @@
 package frc.robot.oi.positions;
 
 import edu.wpi.first.wpilibj.Joystick;
-
 import frc.robot.brains.JoystickBrain;
-
+import frc.robot.oi.ControlDevices;
 // The position values obtained from a Joystick
 public class JoystickPosition {
 
@@ -23,6 +22,12 @@ public class JoystickPosition {
 
     // Gets the joystick position and applies user-determined orientation, deadzones, and sensitivity
     public static JoystickPosition getJoystickPosition(Joystick jstick, boolean isYflipped) {
+        int port = jstick.getPort();
+        boolean jstickIsConnected = ControlDevices.isStickConnected(port);
+        if (!jstickIsConnected) {
+            return new JoystickPosition();
+        }
+
         double y = jstick.getY(); // Forward & backward, flipped
         double x = jstick.getX(); // Side to side
         double z = jstick.getZ(); // Rotate, flipped?
