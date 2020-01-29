@@ -15,7 +15,7 @@ import frc.robot.consoles.Logger;
 public class BotCommands {
 
     // Autonomous
-    public static AutoPeriod autoPeriod;
+    public static AutoDriveForward autoPeriod;
 
     // Conveyor
     public static MoveConveyor moveConveyor;
@@ -40,7 +40,7 @@ public class BotCommands {
         Logger.setup("Initializing BotCommands...");
 
         // Autonomous
-        autoPeriod = new AutoPeriod(BotSubsystems.diffDriver);
+        autoPeriod = new AutoDriveForward(BotSubsystems.diffDriver);
 
         // Conveyor
         moveConveyor = new MoveConveyor(BotSubsystems.conveyor);
