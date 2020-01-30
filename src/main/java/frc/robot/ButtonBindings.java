@@ -25,6 +25,7 @@ public class ButtonBindings {
         ControlDevices.driveXboxBtnA.whileHeld(BotCommands.spinPickup);
         ControlDevices.driveXboxBtnB.whenPressed(BotCommands.cycleLights);
         ControlDevices.driveXboxBtnY.whenPressed(BotCommands.moveConveyor);
+        ControlDevices.driveXboxBtnX.whileHeld(BotCommands.spinColorWheel);
     }
 
 }
