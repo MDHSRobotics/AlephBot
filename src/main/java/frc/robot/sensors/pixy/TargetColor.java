@@ -17,6 +17,7 @@ public class TargetColor extends SubsystemBase {
         int detectedRGB = Camera.getPixyCamera1().getPixy().getVideo().getRGB(5, 5, rgb, true);
         Logger.info(detectedRGB);
 
+        //TODO: check values
         boolean redDetected = (detectedRGB == 646400);
         boolean yellowDetected = (detectedRGB == 000064);
         boolean greenDetected = (detectedRGB ==  640064);

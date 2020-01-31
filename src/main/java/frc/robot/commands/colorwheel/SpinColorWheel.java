@@ -30,20 +30,20 @@ public class SpinColorWheel extends CommandBase {
 
     @Override
     public void execute() {
-        if (m_colorMode.switchColor() != "Red") {
-            while (m_targetColor.detectColor() == "Red") {
+        if (m_colorMode.switchColor() == "Red") {
+            while (m_targetColor.detectColor() != "Red") {
                 m_colorwheel.spinWheel();
             }
-        } else if (m_colorMode.switchColor() != "Yellow") {
-            while (m_targetColor.detectColor() == "Yellow") {
+        } else if (m_colorMode.switchColor() == "Yellow") {
+            while (m_targetColor.detectColor()!= "Yellow") {
                 m_colorwheel.spinWheel();
             }
-        } else if (m_colorMode.switchColor() != "Green") {
-            while (m_targetColor.detectColor() == "Green") {
+        } else if (m_colorMode.switchColor() == "Green") {
+            while (m_targetColor.detectColor() != "Green") {
                 m_colorwheel.spinWheel();
             }
-        } else if (m_colorMode.switchColor() != "Blue") {
-            while (m_targetColor.detectColor() == "Blue") {
+        } else if (m_colorMode.switchColor() == "Blue") {
+            while (m_targetColor.detectColor() != "Blue") {
                 m_colorwheel.spinWheel();
             }
         }
