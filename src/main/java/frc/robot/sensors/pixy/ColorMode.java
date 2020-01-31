@@ -26,7 +26,7 @@ public class ColorMode extends SubsystemBase {
             Logger.info("Switched Mode to Yellow");
         } else if (colorCounter == 3) {
             colorMode = "Green";
-            Logger.info("Switched Mode to Green ");
+            Logger.info("Switched Mode to Green");
         } else if (colorCounter == 4) {
             colorMode = "Blue";
             Logger.info("Switched Mode to Blue");
