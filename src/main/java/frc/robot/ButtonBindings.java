@@ -26,6 +26,7 @@ public class ButtonBindings {
         ControlDevices.driveXboxBtnB.whenPressed(BotCommands.cycleLights);
         ControlDevices.driveXboxBtnY.whenPressed(BotCommands.moveConveyor);
         ControlDevices.driveXboxBtnX.whileHeld(BotCommands.spinColorWheel);
+
     }
 
 }

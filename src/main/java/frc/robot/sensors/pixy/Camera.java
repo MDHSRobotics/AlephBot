@@ -1,0 +1,34 @@
+package frc.robot.sensors.pixy;
+
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
+import io.github.pseudoresonance.pixy2api.links.SPILink;
+
+public class Camera {
+
+    private static UsbCamera drive = null;
+    private static PixyCamera pixy1 = null;
+
+    public static void setup() {
+        initDrive();
+        pixy1 = new PixyCamera(new SPILink());
+
+    }
+
+    public static PixyCamera getPixyCamera1() {
+        return pixy1;
+    }
+
+    public static void initDrive() {
+        drive = CameraServer.getInstance().startAutomaticCapture();
+        drive.setConnectVerbose(0);
+        if (drive != null) {
+            drive.setResolution(320, 240);
+            drive.setFPS(30);
+            drive.setWhiteBalanceManual(4500);
+            drive.setExposureAuto();
+            drive.setBrightness(50);
+        }
+    }
+
+}
