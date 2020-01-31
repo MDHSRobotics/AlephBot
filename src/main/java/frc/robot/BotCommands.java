@@ -2,9 +2,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.colorwheel.DetectColor;
-import frc.robot.commands.colorwheel.SpinColorWheel;
-import frc.robot.commands.colorwheel.StopColorWheel;
+import frc.robot.commands.colorwheel.*;
 import frc.robot.commands.conveyor.*;
 import frc.robot.commands.diffdriver.*;
 import frc.robot.commands.lighter.*;
@@ -32,6 +30,7 @@ public class BotCommands {
     public static SpinColorWheel spinColorWheel;
     public static StopColorWheel stopColorWheel;
     public static DetectColor detectColor;
+    public static SwitchMode switchMode;
 
     // Initialize all robot commands
     public static void initializeCommands() {
@@ -55,7 +54,8 @@ public class BotCommands {
         spinColorWheel = new SpinColorWheel(BotSubsystems.colorwheel);
         stopColorWheel = new StopColorWheel(BotSubsystems.colorwheel);
         detectColor = new DetectColor(BotSubsystems.targetColor);
-    }
+        switchMode = new SwitchMode(BotSubsystems.colorMode);
+;    }
 
     // Return the command to run in autonomous mode
     public static Command getAutonomousCommand() {

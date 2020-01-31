@@ -3,7 +3,8 @@ package frc.robot;
 
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.*;
-import frc.robot.sensors.pixy.TargetColor;
+import frc.robot.sensors.pixy.*;
+
 
 // Contains singleton instances of all the subsystems on the robot.
 // IMPORTANT: When you make a new subsystem, you need to also set a default command.
@@ -15,6 +16,7 @@ public class BotSubsystems {
     public static Pickup pickup;
     public static ColorWheel colorwheel;
     public static TargetColor targetColor;
+    public static ColorMode colorMode;
 
     // Initialize all robot subsystems
     public static void initializeSubsystems() {
@@ -26,6 +28,7 @@ public class BotSubsystems {
         pickup = new Pickup();
         colorwheel = new ColorWheel();
         targetColor = new TargetColor();
+        colorMode = new ColorMode();
     }
 
     // Set all the subsystem default commands
