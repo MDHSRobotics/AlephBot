@@ -2,8 +2,11 @@
 package frc.robot.oi.positions;
 
 import edu.wpi.first.wpilibj.Joystick;
+
 import frc.robot.brains.JoystickBrain;
+import frc.robot.consoles.Logger;
 import frc.robot.oi.ControlDevices;
+
 // The position values obtained from a Joystick
 public class JoystickPosition {
 
@@ -76,6 +79,7 @@ public class JoystickPosition {
         z = z * zSensitivity;
 
         JoystickPosition pos = new JoystickPosition(y, x, z);
+        // Logger.info("Joystick Position --> forwardBack: " + pos.forwardBackPosition + "; sideToSide: " + pos.sideToSidePosition + "; rotation: " + pos.rotationPosition);
         return pos;
     }
 
