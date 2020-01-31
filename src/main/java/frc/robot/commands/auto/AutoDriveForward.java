@@ -1,4 +1,3 @@
-
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -7,8 +6,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.DiffDriver;
 
-// This command auto drives the DiffDriver forward, follows a path, and then shoots.
-public class AutoDriveForwardShoot extends CommandBase {
+// This command auto drives the DiffDriver forward for a short time
+public class AutoDriveForward extends CommandBase {
 
     private DiffDriver m_diffDriver;
 
@@ -18,8 +17,8 @@ public class AutoDriveForwardShoot extends CommandBase {
     private static final double MAX_DRIVE_SECONDS = 5.0;
     private static final double DELAY_DRIVE_SECONDS = 2.0;
 
-    public AutoDriveForwardShoot(DiffDriver diffDriver) {
-        Logger.setup("Constructing Command: AutoDriveForwardShoot...");
+    public AutoDriveForward(DiffDriver diffDriver) {
+        Logger.setup("Constructing Command: AutoDriveForward...");
 
         // Add given subsystem requirements
         m_diffDriver = diffDriver;
@@ -28,7 +27,7 @@ public class AutoDriveForwardShoot extends CommandBase {
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: AutoDriveForwardShoot...");
+        Logger.action("Initializing Command: AutoDriveForward...");
 
         Timer.delay(DELAY_DRIVE_SECONDS); // to avoid robots from starting at the same time
         m_timer.reset();
@@ -41,7 +40,7 @@ public class AutoDriveForwardShoot extends CommandBase {
         double timeElapsedSincePrint = currentTime - m_timeLastPrinted;
 
         if (timeElapsedSincePrint > 1.0) {
-            Logger.action("AutoDriveForwardShoot: -> Moved Forward for " + currentTime);
+            Logger.action("AutoDriveForward: -> Moved Forward for " + currentTime);
             m_timeLastPrinted = currentTime;
         }
         m_diffDriver.moveForwardAuto();
@@ -52,11 +51,10 @@ public class AutoDriveForwardShoot extends CommandBase {
     public boolean isFinished() {
         double currentTime = m_timer.get();
 
-        if (currentTime < MAX_DRIVE_SECONDS)
+        if (currentTime < MAX_DRIVE_SECONDS) {
             return false;
-
-        else {
-            Logger.action("AutoDriveForwardShoot: -> Stopped");
+        } else {
+            Logger.action("AutoDriveForward: -> Stopped");
             return true;
         }
     }
@@ -65,9 +63,9 @@ public class AutoDriveForwardShoot extends CommandBase {
     public void end(boolean interrupted) {
         if (interrupted) {
             System.out.println("--");
-            Logger.ending("Interrupting Command: AutoDriveForwardShoot...");
+            Logger.ending("Interrupting Command: AutoDriveForward...");
         } else {
-            Logger.ending("Ending Command: AutoDriveForwardShoot...");
+            Logger.ending("Ending Command: AutoDriveForward...");
         }
     }
 

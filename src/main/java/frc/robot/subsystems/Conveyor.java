@@ -15,9 +15,7 @@ public class Conveyor extends SubsystemBase {
 
     public Conveyor() {
         Logger.setup("Constructing Subsystem: Conveyor...");
-    }
 
-    public void conveyor() {
         // Determine whether or not to disable the subsystem
         m_disabled = (talonSrxConveyor == null);
         if (m_disabled) {
