@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import frc.robot.consoles.Logger;
-import frc.robot.oi.ControlDevices;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -21,7 +20,7 @@ public class Robot extends TimedRobot {
     private Command m_autonomousCommand;
 
     // Teleop variables
-    public boolean driveXBoxConnected = false;
+    public boolean primaryControllerConnected = false;
 
     // Test variables
     private final double TEST_SECONDS = 5.0;
@@ -112,7 +111,7 @@ public class Robot extends TimedRobot {
         }
 
         // Check which controllers are plugged in
-        driveXBoxConnected = ControlDevices.isDriveXboxConnected();
+        primaryControllerConnected = BotControllers.primary.isConnected();
     }
 
     /**
@@ -120,13 +119,13 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        // Detect whether a controller has been plugged in after start-up
-        if (!driveXBoxConnected) {
-            if (ControlDevices.isDriveXboxConnected()) {
-                // Drive XBox was not previously plugged in but now it is so configure buttons
-                ButtonBindings.configureDriveXBoxButtons();
-                Logger.setup("Drive XBox controller detected and configured");
-                driveXBoxConnected = true;
+        // Detect whether the primary controller has been plugged in after start-up
+        if (!primaryControllerConnected) {
+            if (BotControllers.primary.isConnected()) {
+                // Primary controller was not previously plugged in but now it is so configure buttons
+                ButtonBindings.configurePrimaryButtons();
+                Logger.setup("Primary controller detected and configured");
+                primaryControllerConnected = true;
             }
         }
     }

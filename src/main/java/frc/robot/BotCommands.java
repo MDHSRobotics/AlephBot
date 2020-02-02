@@ -22,7 +22,7 @@ public class BotCommands {
     public static StopConveyor stopConveyor;
 
     // DiffDriver
-    public static DriveDifferentialTank driveDifferentialTank;
+    public static DriveDiffTank driveDifferentialTank;
 
     // Lighter
     public static CycleLights cycleLights;
@@ -47,7 +47,7 @@ public class BotCommands {
         stopConveyor = new StopConveyor(BotSubsystems.conveyor);
 
         // DiffDriver
-        driveDifferentialTank = new DriveDifferentialTank(BotSubsystems.diffDriver);
+        driveDifferentialTank = new DriveDiffTank(BotSubsystems.diffDriver);
 
         // Lighter
         cycleLights = new CycleLights(BotSubsystems.lighter);
