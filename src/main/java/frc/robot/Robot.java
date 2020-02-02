@@ -159,9 +159,9 @@ public class Robot extends TimedRobot {
         switch (m_currentTest) {
             case 1:
                 if (currentTime == 0) {
-                    Logger.action("Starting CycleLights Test for " + TEST_SECONDS + " seconds...");
+                    Logger.action("Starting TestCycleLights Test for " + TEST_SECONDS + " seconds...");
                     m_testTimer.start();
-                    BotCommands.cycleLights.schedule();
+                    BotCommands.testCycleLights.schedule();
                 }
                 return;
             case 2:
