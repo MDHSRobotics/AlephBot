@@ -31,6 +31,7 @@ public class BotCommands {
     public static StopColorWheel stopColorWheel;
     public static DetectColor detectColor;
     public static SwitchMode switchMode;
+    public static RotateWheel rotateWheel;
 
     // Initialize all robot commands
     public static void initializeCommands() {
@@ -55,6 +56,7 @@ public class BotCommands {
         stopColorWheel = new StopColorWheel(BotSubsystems.colorwheel);
         detectColor = new DetectColor(BotSubsystems.targetColor);
         switchMode = new SwitchMode(BotSubsystems.colorMode);
+        rotateWheel = new RotateWheel(BotSubsystems.colorwheel);
 ;    }
 
     // Return the command to run in autonomous mode
