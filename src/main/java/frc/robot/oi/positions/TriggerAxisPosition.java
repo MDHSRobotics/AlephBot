@@ -4,22 +4,22 @@ package frc.robot.oi.positions;
 import frc.robot.oi.controllers.XboxControllerContainer;
 
 // The position values obtained from xbox triggers
-public class TriggerPosition {
+public class TriggerAxisPosition {
 
     public double leftTriggerPosition = 0;
     public double rightTriggerPosition = 0;
 
-    public TriggerPosition() {
+    public TriggerAxisPosition() {
     }
 
-    public TriggerPosition(double leftTrigger, double rightTrigger) {
+    public TriggerAxisPosition(double leftTrigger, double rightTrigger) {
         leftTriggerPosition = leftTrigger;
         rightTriggerPosition = rightTrigger;
     }
 
     // Gets the xbox trigger positions
-    public static TriggerPosition getTriggerPositions(XboxControllerContainer controller) {
-        TriggerPosition pos = controller.getTriggerPositions();
+    public static TriggerAxisPosition getTriggerPositions(XboxControllerContainer controller) {
+        TriggerAxisPosition pos = controller.getTriggerPositions();
         return pos;
     }
 

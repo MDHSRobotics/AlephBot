@@ -22,6 +22,7 @@ public class ButtonBindings {
     public static void configurePrimaryButtons() {
         Logger.setup("Configure Buttons -> Primary Controller...");
 
+        BotControllers.primary.btnDpad.whileHeld(BotCommands.driveDifferentialTank);
         BotControllers.primary.btnA.whileHeld(BotCommands.spinPickup);
         BotControllers.primary.btnX.whileHeld(BotCommands.shootBall);
         BotControllers.primary.btnY.whenPressed(BotCommands.moveConveyor);
