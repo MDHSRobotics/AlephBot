@@ -17,6 +17,7 @@ public class BotCommands {
 
     // Autonomous
     public static AutoDriveForward autoDriveForward;
+    public static AutoDriveForwardShoot autoDriveForwardShoot;
 
     // Conveyor
     public static MoveConveyor moveConveyor;
@@ -47,6 +48,7 @@ public class BotCommands {
 
         // Autonomous
         autoDriveForward = new AutoDriveForward(BotSubsystems.diffDriver);
+        autoDriveForwardShoot = new AutoDriveForwardShoot(BotSubsystems.diffDriver);
 
         // Conveyor
         moveConveyor = new MoveConveyor(BotSubsystems.conveyor);
@@ -74,7 +76,7 @@ public class BotCommands {
 
     // Return the command to run in autonomous mode
     public static Command getAutonomousCommand() {
-        return autoDriveForward;
+        return autoDriveForwardShoot;
     }
 
 }
