@@ -31,7 +31,7 @@ public class Devices {
 
     static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(2); // 1 motor
 
-    static WPI_TalonSRX talonSrxColorWheel = new WPI_TalonSRX(4); // 1 motor
+    static WPI_TalonSRX talonSrxColorWheel = new WPI_TalonSRX(2); // 1 motor
 
     ////////////////////////
     // Drive Declarations //
