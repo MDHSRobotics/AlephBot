@@ -2,11 +2,11 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import frc.robot.consoles.Logger;
+import frc.robot.tests.TestRunnable;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -19,13 +19,10 @@ public class Robot extends TimedRobot {
     // Autonomous variables
     private Command m_autonomousCommand;
 
-    // Teleop variables
-    public boolean primaryControllerConnected = false;
-
     // Test variables
-    private final double TEST_SECONDS = 5.0;
-    private int m_currentTest = 0;
-    private Timer m_testTimer = new Timer();
+    private int m_numberOfTests;
+    private int m_currentTestNumber;
+    private int m_testIteration;
 
     /**
      * This function is run when the robot is first started up and should be used for any
@@ -68,6 +65,10 @@ public class Robot extends TimedRobot {
     public void disabledInit() {
         System.out.println("--");
         Logger.ending("Disabling Robot...");
+
+        // Reset virtual controllers and cancel all scheduled commands
+        VirtualControllers.reset();
+        CommandScheduler.getInstance().cancelAll();
     }
 
     @Override
@@ -82,9 +83,12 @@ public class Robot extends TimedRobot {
         System.out.println("--");
         Logger.setup("Initializing Autonomous Mode...");
 
-        m_autonomousCommand = BotCommands.getAutonomousCommand();
+        // Reset virtual controllers and cancel all scheduled commands
+        VirtualControllers.reset();
+        CommandScheduler.getInstance().cancelAll();
 
-        // schedule the autonomous command (example)
+        // Schedule the autonomous command
+        m_autonomousCommand = BotCommands.getAutonomousCommand();
         if (m_autonomousCommand != null) {
             m_autonomousCommand.schedule();
         }
@@ -102,16 +106,12 @@ public class Robot extends TimedRobot {
         System.out.println("--");
         Logger.setup("Initializing Teleop Mode...");
 
-        // This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
-        if (m_autonomousCommand != null) {
-            m_autonomousCommand.cancel();
-        }
+        // Set subsystem "teleop" default commands
+        BotSubsystems.setTeleopDefaultCommands();
 
-        // Check which controllers are plugged in
-        primaryControllerConnected = BotControllers.primary.isConnected();
+        // Reset virtual controllers and cancel all scheduled commands
+        VirtualControllers.reset();
+        CommandScheduler.getInstance().cancelAll();
     }
 
     /**
@@ -119,15 +119,8 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        // Detect whether the primary controller has been plugged in after start-up
-        if (!primaryControllerConnected) {
-            if (BotControllers.primary.isConnected()) {
-                // Primary controller was not previously plugged in but now it is so configure buttons
-                ButtonBindings.configurePrimaryButtons();
-                Logger.setup("Primary controller detected and configured");
-                primaryControllerConnected = true;
-            }
-        }
+        // Configure all controllers
+        BotControllers.configure();
     }
 
     @Override
@@ -135,12 +128,23 @@ public class Robot extends TimedRobot {
         System.out.println("--");
         Logger.setup("Initializing Test Mode...");
 
-        // Cancels all running commands at the start of test mode.
-        CommandScheduler.getInstance().cancelAll();
+        // Set subsystem "test" default commands
+        BotSubsystems.setTestDefaultCommands();
 
-        m_currentTest = 1;
-        m_testTimer.stop();
-        m_testTimer.reset();
+        // Reset virtual controllers and cancel all scheduled commands
+        VirtualControllers.reset();
+        CommandScheduler.getInstance().cancelAll();
+        // Re-enable the scheduler
+        CommandScheduler.getInstance().enable();
+
+        // Configure virtual controllers
+        VirtualControllers.configure();
+
+        // Reset the test variables
+        m_numberOfTests = TestSupplier.getNumberOfTests();
+        Logger.info("Number of tests registered: " + m_numberOfTests);
+        m_currentTestNumber = 0;
+        m_testIteration = 0;
     }
 
     /**
@@ -148,35 +152,21 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void testPeriodic() {
-        double currentTime = m_testTimer.get();
-        if (currentTime > 5.0) {
-            m_currentTest++;
-            m_testTimer.stop();
-            m_testTimer.reset();
-            currentTime = 0;
+        if (m_testIteration == 0) {
+            VirtualControllers.reset();
+            CommandScheduler.getInstance().cancelAll();
+            m_currentTestNumber++;
         }
 
-        switch (m_currentTest) {
-            case 1:
-                if (currentTime == 0) {
-                    Logger.action("Starting TestCycleLights Test for " + TEST_SECONDS + " seconds...");
-                    m_testTimer.start();
-                    BotCommands.testCycleLights.schedule();
-                }
-                return;
-            case 2:
-                if (currentTime == 0) {
-                    Logger.action("Starting MoveConveyor Test for " + TEST_SECONDS + " seconds...");
-                    m_testTimer.start();
-                    BotCommands.moveConveyor.schedule();
-                }
-                return;
-            default:
-                Logger.action("All tests complete.");
-                m_currentTest = 1;
-                m_testTimer.stop();
-                m_testTimer.reset();
-                return;
+        if (m_currentTestNumber <= m_numberOfTests) {
+            TestRunnable currentTest = TestSupplier.getTest(m_currentTestNumber);
+            m_testIteration = currentTest.run(m_testIteration);
+        } else {
+            Logger.ending("All tests complete.");
+            VirtualControllers.reset();
+            CommandScheduler.getInstance().cancelAll();
+            m_currentTestNumber = 0;
+            m_testIteration = 0;
         }
     }
 

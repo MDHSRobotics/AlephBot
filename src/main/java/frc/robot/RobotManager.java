@@ -49,10 +49,11 @@ public class RobotManager {
         botShuffler = new Shuffler();
         botShuffler.preInitialize();
 
-        // Initialize BotSensors, BotSubsystems, and BotCommands
+        // Initialize BotSensors, BotSubsystems, BotCommands, and TestCommands
         BotSensors.initializeSensors();
         BotSubsystems.initializeSubsystems();
         BotCommands.initializeCommands();
+        TestCommands.initializeCommands();
 
         // Setup SmartDashboard
         setupSmartDashboard();
@@ -60,17 +61,13 @@ public class RobotManager {
         // Intialize and configure the Shuffler
         botShuffler.initialize();
         botShuffler.configure();
-
-        // Set default subsystem commands and configure button bindings
-        BotSubsystems.setDefaultCommands();
-        ButtonBindings.configure();
     }
 
     // Add the desired commands to the SmartDashboard
     private static void setupSmartDashboard() {
         Logger.setup("Adding AutoModes to SmartDashboard...");
         autoCommandChooser = new SendableChooser<>();
-        autoCommandChooser.setDefaultOption("Lighter - TestCycleLights", BotCommands.testCycleLights);
+        autoCommandChooser.setDefaultOption("Lighter - CycleLights", BotCommands.cycleLights);
         // TODO: Add additional commands for autonomous here
         SmartDashboard.putData("AutoMode", autoCommandChooser);
     }

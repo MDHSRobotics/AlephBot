@@ -24,8 +24,8 @@ public class BotSubsystems {
         shooter = new Shooter();
     }
 
-    // Set all the subsystem default commands
-    public static void setDefaultCommands() {
+    // Set all the subsystem "teleop" default commands
+    public static void setTeleopDefaultCommands() {
         Logger.setup("Conveyor DefaultCommand -> StopConveyor...");
         conveyor.setDefaultCommand(BotCommands.stopConveyor);
 
@@ -37,6 +37,10 @@ public class BotSubsystems {
 
         Logger.setup("Shooter DefaultCommand -> StopShooter...");
         shooter.setDefaultCommand(BotCommands.stopShooter);
+    }
+
+    // Set all the subsystem "test" default commands
+    public static void setTestDefaultCommands() {
     }
 
 }

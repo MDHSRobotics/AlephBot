@@ -19,7 +19,7 @@ public class Pickup extends SubsystemBase {
         // Determine whether or not to disable the subsystem
         m_disabled = (talonSrxPickup == null);
         if (m_disabled) {
-            Logger.error("Pickup devices not initialized! Disabling subsystem...");
+            Logger.problem("Pickup devices not initialized! Disabling subsystem...");
             return;
         }
 

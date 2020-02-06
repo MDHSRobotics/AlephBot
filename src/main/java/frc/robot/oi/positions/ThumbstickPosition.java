@@ -2,7 +2,7 @@
 package frc.robot.oi.positions;
 
 import frc.robot.brains.XboxBrain;
-import frc.robot.oi.controllers.XboxControllerContainer;
+import frc.robot.oi.controllers.XboxPositionAccessible;
 
 // The position values obtained from xbox thumbsticks
 public class ThumbstickPosition {
@@ -15,8 +15,7 @@ public class ThumbstickPosition {
     public ThumbstickPosition() {
     }
 
-    public ThumbstickPosition(double leftForwardBack, double leftSideToSide, double rightForwardBack,
-            double rightSideToSide) {
+    public ThumbstickPosition(double leftForwardBack, double leftSideToSide, double rightForwardBack, double rightSideToSide) {
         leftForwardBackPosition = leftForwardBack;
         leftSideToSidePosition = leftSideToSide;
         rightForwardBackPosition = rightForwardBack;
@@ -24,7 +23,7 @@ public class ThumbstickPosition {
     }
 
     // Gets the xbox thumbstick positions and applies user-determined orientation, deadzones, and sensitivity
-    public static ThumbstickPosition getPositions(XboxControllerContainer controller, boolean isYleftFlipped) {
+    public static ThumbstickPosition getPositions(XboxPositionAccessible controller, boolean isYleftFlipped) {
         ThumbstickPosition pos = controller.getThumbstickPositions(isYleftFlipped);
 
         double yLeft = pos.leftForwardBackPosition; // Left forward & backward, flipped
@@ -48,31 +47,19 @@ public class ThumbstickPosition {
         double yRightDeadZone = XboxBrain.getYrightDeadZone();
         double xRightDeadZone = XboxBrain.getXrightDeadZone();
 
-        if (Math.abs(yLeft) <= yLeftDeadZone)
-            yLeft = 0;
-        if (Math.abs(xLeft) <= xLeftDeadZone)
-            xLeft = 0;
-        if (Math.abs(yRight) <= yRightDeadZone)
-            yRight = 0;
-        if (Math.abs(xRight) <= xRightDeadZone)
-            xRight = 0;
+        if (Math.abs(yLeft) <= yLeftDeadZone) yLeft = 0;
+        if (Math.abs(xLeft) <= xLeftDeadZone) xLeft = 0;
+        if (Math.abs(yRight) <= yRightDeadZone) yRight = 0;
+        if (Math.abs(xRight) <= xRightDeadZone) xRight = 0;
 
-        if (yLeft > 0)
-            yLeft = yLeft - yLeftDeadZone;
-        if (yLeft < 0)
-            yLeft = yLeft + yLeftDeadZone;
-        if (xLeft > 0)
-            xLeft = xLeft - xLeftDeadZone;
-        if (xLeft < 0)
-            xLeft = xLeft + xLeftDeadZone;
-        if (yRight > 0)
-            yRight = yRight - yRightDeadZone;
-        if (yRight < 0)
-            yRight = yRight + yRightDeadZone;
-        if (xRight > 0)
-            xRight = xRight - xRightDeadZone;
-        if (xRight < 0)
-            xRight = xRight + xRightDeadZone;
+        if (yLeft > 0) yLeft = yLeft - yLeftDeadZone;
+        if (yLeft < 0) yLeft = yLeft + yLeftDeadZone;
+        if (xLeft > 0) xLeft = xLeft - xLeftDeadZone;
+        if (xLeft < 0) xLeft = xLeft + xLeftDeadZone;
+        if (yRight > 0) yRight = yRight - yRightDeadZone;
+        if (yRight < 0) yRight = yRight + yRightDeadZone;
+        if (xRight > 0) xRight = xRight - xRightDeadZone;
+        if (xRight < 0) xRight = xRight + xRightDeadZone;
 
         // Sensitivity
         double yLeftSensitivity = XboxBrain.getYleftSensitivity();

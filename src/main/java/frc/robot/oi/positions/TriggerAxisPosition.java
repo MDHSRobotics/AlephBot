@@ -1,25 +1,25 @@
 
 package frc.robot.oi.positions;
 
-import frc.robot.oi.controllers.XboxControllerContainer;
+import frc.robot.oi.controllers.XboxPositionAccessible;
 
-// The position values obtained from xbox triggers
+// The position values obtained from xbox trigger axis
 public class TriggerAxisPosition {
 
-    public double leftTriggerPosition = 0;
-    public double rightTriggerPosition = 0;
+    public double leftTriggerAxisPosition = 0;
+    public double rightTriggerAxisPosition = 0;
 
     public TriggerAxisPosition() {
     }
 
-    public TriggerAxisPosition(double leftTrigger, double rightTrigger) {
-        leftTriggerPosition = leftTrigger;
-        rightTriggerPosition = rightTrigger;
+    public TriggerAxisPosition(double leftTriggerAxis, double rightTriggerAxis) {
+        leftTriggerAxisPosition = leftTriggerAxis;
+        rightTriggerAxisPosition = rightTriggerAxis;
     }
 
-    // Gets the xbox trigger positions
-    public static TriggerAxisPosition getTriggerPositions(XboxControllerContainer controller) {
-        TriggerAxisPosition pos = controller.getTriggerPositions();
+    // Gets the xbox trigger axis positions
+    public static TriggerAxisPosition getTriggerAxisPositions(XboxPositionAccessible controller) {
+        TriggerAxisPosition pos = controller.getTriggerAxisPositions();
         return pos;
     }
 

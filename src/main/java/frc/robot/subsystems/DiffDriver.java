@@ -30,7 +30,7 @@ public class DiffDriver extends SubsystemBase {
         // Determine whether or not to disable the subsystem
         m_disabled = (diffDrive == null);
         if (m_disabled) {
-            Logger.error("DiffDriver devices not initialized! Disabling subsystem...");
+            Logger.problem("DiffDriver devices not initialized! Disabling subsystem...");
             return;
         }
 

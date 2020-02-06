@@ -25,7 +25,7 @@ public class BotCommands {
     public static DriveDiffTank driveDifferentialTank;
 
     // Lighter
-    public static TestCycleLights testCycleLights;
+    public static CycleLights cycleLights;
 
     // Pickup
     public static SpinPickup spinPickup;
@@ -50,7 +50,7 @@ public class BotCommands {
         driveDifferentialTank = new DriveDiffTank(BotSubsystems.diffDriver);
 
         // Lighter
-        testCycleLights = new TestCycleLights(BotSubsystems.lighter);
+        cycleLights = new CycleLights(BotSubsystems.lighter);
 
         // Pickup
         spinPickup = new SpinPickup(BotSubsystems.pickup);

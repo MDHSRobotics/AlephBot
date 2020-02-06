@@ -10,7 +10,7 @@ import frc.robot.oi.positions.ThumbstickPosition;
 import frc.robot.oi.positions.TriggerAxisPosition;
 
 // This class contains an xbox controller and properties for all its buttons.
-public class XboxControllerContainer extends ControllerContainer {
+public class XboxControllerContainer extends ControllerContainer implements XboxPositionAccessible {
 
     public XboxController xbox;
     public JoystickButton btnA;
@@ -59,7 +59,8 @@ public class XboxControllerContainer extends ControllerContainer {
 
     // Gets the raw xbox thumbstick positions
     public ThumbstickPosition getThumbstickPositions(boolean isYleftFlipped) {
-        if (!isConnected()) return new ThumbstickPosition();
+        if (!isConnected())
+            return new ThumbstickPosition();
 
         double yLeft = xbox.getY(Hand.kLeft); // Forward & backward, flipped
         double xLeft = xbox.getX(Hand.kLeft); // Strafe
@@ -70,9 +71,10 @@ public class XboxControllerContainer extends ControllerContainer {
         return pos;
     }
 
-    // Gets the raw xbox Trigger Axis positions
-    public TriggerAxisPosition getTriggerPositions() {
-        if (!isConnected()) return new TriggerAxisPosition();
+    // Gets the raw xbox trigger positions
+    public TriggerAxisPosition getTriggerAxisPositions() {
+        if (!isConnected())
+            return new TriggerAxisPosition();
 
         double leftTriggerAxis = xbox.getTriggerAxis(Hand.kLeft);
         double rightTriggerAxis = xbox.getTriggerAxis(Hand.kRight);

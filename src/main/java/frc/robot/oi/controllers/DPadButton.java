@@ -1,8 +1,8 @@
 
 package frc.robot.oi.controllers;
 
-import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj2.command.button.Button;
 
 // Represents the directional pad button on an xbox controller (or equivalent on another device).
 public class DPadButton extends Button {
@@ -32,10 +32,9 @@ public class DPadButton extends Button {
     }
 
     // Converts the Dpad Angle (0 to 360, clockwise) into a Gyro Angle (0 to 180, clockwise, 0 to -180 counter-clockwise)
-    public static int getDpadAngleForGyro(GenericHID humanInterfaceDevice) {
+    public static int getGyroAngleFromDpadAngle(GenericHID humanInterfaceDevice) {
         int angle = humanInterfaceDevice.getPOV(0);
-        if (angle > 180)
-            angle = angle - 360;
+        if (angle > 180) angle = angle - 360;
         return angle;
     }
 
