@@ -26,7 +26,7 @@ public class ButtonBindings {
         ControlDevices.driveXboxBtnB.whenPressed(BotCommands.cycleLights);
         ControlDevices.driveXboxBtnY.whenPressed(BotCommands.moveConveyor);
         ControlDevices.driveXboxBtnBumperLeft.whenPressed(BotCommands.spinColorWheel);
-        ControlDevices.driveXboxBtnBumperRight.whenPressed(BotCommands.switchMode);
+        ControlDevices.driveXboxBtnBumperRight.whileHeld(BotCommands.switchMode);
         ControlDevices.driveXboxBtnX.whenPressed(BotCommands.rotateWheel);
 
     }

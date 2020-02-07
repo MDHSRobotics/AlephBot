@@ -1,5 +1,7 @@
 package frc.robot.sensors.pixy;
 
+import frc.robot.consoles.Logger;
+
 import io.github.pseudoresonance.pixy2api.Pixy2;
 import io.github.pseudoresonance.pixy2api.links.Link;
 
@@ -14,7 +16,8 @@ public class PixyCamera {
 
     public PixyCamera(Link link, int arg) {
         pixy = Pixy2.createInstance(link);
-        pixy.init(arg);
+        int result = pixy.init(arg);
+        Logger.info("Pixy init result: " + result);
     }
 
     public Pixy2 getPixy() {

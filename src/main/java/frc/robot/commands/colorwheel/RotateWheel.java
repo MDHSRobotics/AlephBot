@@ -5,8 +5,6 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.ColorWheel;
-import frc.robot.sensors.pixy.TargetColor;
-import frc.robot.sensors.pixy.ColorMode;
 
 // This command spins the Pickup motor
 public class RotateWheel extends CommandBase {
