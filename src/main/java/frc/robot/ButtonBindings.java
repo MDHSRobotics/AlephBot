@@ -18,6 +18,13 @@ public class ButtonBindings {
 
         // Shooter
         BotControllers.primary.btnX.whileHeld(BotCommands.shootBall);
+        ControlDevices.driveXboxBtnA.whileHeld(BotCommands.spinPickup);
+        ControlDevices.driveXboxBtnB.whenPressed(BotCommands.cycleLights);
+        ControlDevices.driveXboxBtnY.whenPressed(BotCommands.moveConveyor);
+        ControlDevices.driveXboxBtnBumperLeft.whenPressed(BotCommands.spinColorWheel);
+        ControlDevices.driveXboxBtnBumperRight.whileHeld(BotCommands.switchMode);
+        ControlDevices.driveXboxBtnX.whenPressed(BotCommands.rotateWheel);
+
     }
 
 }

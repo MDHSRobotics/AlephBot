@@ -4,6 +4,7 @@ package frc.robot;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SPI;
 
+import frc.robot.sensors.pixy.Camera;
 import frc.robot.consoles.Logger;
 
 // This class contains singleton instances of id mapped sensors.
@@ -17,6 +18,7 @@ public class BotSensors {
         Logger.setup("Initializing BotSensors...");
 
         initializeGyro();
+        Camera.setup();
     }
 
     // Gyro

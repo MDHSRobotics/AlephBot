@@ -4,6 +4,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.commands.auto.*;
+import frc.robot.commands.colorwheel.*;
 import frc.robot.commands.conveyor.*;
 import frc.robot.commands.diffdriver.*;
 import frc.robot.commands.lighter.*;
@@ -35,6 +36,13 @@ public class BotCommands {
     public static ShootBall shootBall;
     public static StopShooter stopShooter;
 
+    // Color Wheel
+    public static SpinColorWheel spinColorWheel;
+    public static StopColorWheel stopColorWheel;
+    public static DetectColor detectColor;
+    public static SwitchMode switchMode;
+    public static RotateWheel rotateWheel;
+
     // Initialize all robot commands
     public static void initializeCommands() {
         Logger.setup("Initializing BotCommands...");
@@ -59,6 +67,13 @@ public class BotCommands {
         // Shooter
         shootBall = new ShootBall(BotSubsystems.shooter);
         stopShooter = new StopShooter(BotSubsystems.shooter);
+
+        // Color Wheel
+        spinColorWheel = new SpinColorWheel(BotSubsystems.colorwheel);
+        stopColorWheel = new StopColorWheel(BotSubsystems.colorwheel);
+        detectColor = new DetectColor(BotSubsystems.targetColor);
+        switchMode = new SwitchMode(BotSubsystems.colorMode);
+        rotateWheel = new RotateWheel(BotSubsystems.colorwheel);
     }
 
     // Return the command to run in autonomous mode
