@@ -18,9 +18,6 @@ public class ColorWheel extends SubsystemBase {
     // If not all the talons are initialized, this should be true
     private boolean m_disabled = false;
 
-    // Position constants
-    private final double GEAR_RATIO = 16;
-
     // Encoder constants
     private final boolean SENSOR_PHASE = true; // So that Talon does not report sensor out of phase
     private final boolean MOTOR_INVERT = false; // Which direction you want to be positive; this does not affect motor invert
