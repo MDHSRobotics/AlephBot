@@ -1,18 +1,18 @@
 
-package frc.robot.commands.colorwheel;
+package frc.robot.commands.wheeler;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.consoles.Logger;
-import frc.robot.subsystems.ColorWheel;
+import frc.robot.subsystems.Wheeler;
 
-// This command spins the Pickup motor
-public class RotateWheel extends CommandBase {
+// This command stop spinning the color wheel.
+public class StopColorWheel extends CommandBase {
 
-    private ColorWheel m_colorwheel;
+    private Wheeler m_colorwheel;
 
-    public RotateWheel(ColorWheel colorwheel) {
-        Logger.setup("Constructing Command: RotateWheel...");
+    public StopColorWheel(Wheeler colorwheel) {
+        Logger.setup("Constructing Command: StopColorWheel...");
 
         // Add given subsystem requirements
         m_colorwheel = colorwheel;
@@ -21,12 +21,12 @@ public class RotateWheel extends CommandBase {
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: RotateWheel...");
+        Logger.action("Initializing Command: StopColorWheel...");
     }
 
     @Override
     public void execute() {
-        m_colorwheel.rotateWheel();
+        m_colorwheel.stopWheel();
     }
 
     @Override
@@ -38,9 +38,9 @@ public class RotateWheel extends CommandBase {
     public void end(boolean interrupted) {
         if (interrupted) {
             System.out.println("--");
-            Logger.ending("Interrupting Command: RotateWheel...");
+            Logger.ending("Interrupting Command: StopColorWheel...");
         } else {
-            Logger.ending("Ending Command: RotateWheel...");
+            Logger.ending("Ending Command: StopColorWheel...");
         }
 
         m_colorwheel.stopWheel();

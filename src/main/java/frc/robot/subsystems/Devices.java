@@ -34,7 +34,7 @@ public class Devices {
     static WPI_TalonSRX talonSrxShooterLeftWheel = new WPI_TalonSRX(4);
     static WPI_TalonSRX talonSrxShooterRightWheel = new WPI_TalonSRX(2);
 
-    static WPI_TalonSRX talonSrxColorWheel = new WPI_TalonSRX(2); // 1 motor
+    static WPI_TalonSRX talonSrxWheeler = new WPI_TalonSRX(2); // 1 motor
 
     ////////////////////////
     // Drive Declarations //
@@ -54,13 +54,12 @@ public class Devices {
         initDiffDriverDevices();
         initPickupDevices();
         initShooterDevices();
-        initColorWheelDevices();
+        initWheelerDevices();
     }
 
     // Conveyor
     private static void initConveyorDevices() {
         boolean talonSrxConveyorIsConnected = DeviceUtils.isConnected(talonSrxConveyor);
-
         if (!talonSrxConveyorIsConnected) {
             talonSrxConveyor = null;
             Logger.problem("Conveyor talon is not connected! Disabling...");
@@ -106,7 +105,6 @@ public class Devices {
     // Pickup
     private static void initPickupDevices() {
         boolean talonSrxPickupIsConnected = DeviceUtils.isConnected(talonSrxPickup);
-
         if (!talonSrxPickupIsConnected) {
             talonSrxPickup = null;
             Logger.problem("Pickup talon is not connected! Disabling...");
@@ -119,12 +117,10 @@ public class Devices {
         boolean talonSRXShooterRightWheelIsConnected = DeviceUtils.isConnected(talonSrxShooterRightWheel);
 
         boolean talonsAreConnected = true;
-
         if (!talonSRXShooterLeftWheelIsConnected) {
             talonsAreConnected = false;
             Logger.problem("ShooterLeftWheel talon is not connected!");
         }
-
         if (!talonSRXShooterRightWheelIsConnected) {
             talonsAreConnected = false;
             Logger.problem("ShooterRightWheel talon is not connected!");
@@ -134,18 +130,16 @@ public class Devices {
             Logger.problem("Shooter devices not all connected! Disabling...");
             talonSrxShooterLeftWheel = null;
             talonSrxShooterRightWheel = null;
-
-        }
-
-
-    }
-
-    private static void initColorWheelDevices() {
-        boolean talonSrxColorWheelIsConnected = DeviceUtils.isConnected(talonSrxColorWheel);
-
-        if (!talonSrxColorWheelIsConnected) {
-            talonSrxColorWheel = null;
-            Logger.error("Color Wheel talon is not connected! Disabling...");
         }
     }
+
+    // Wheeler
+    private static void initWheelerDevices() {
+        boolean talonSrxWheelerIsConnected = DeviceUtils.isConnected(talonSrxWheeler);
+        if (!talonSrxWheelerIsConnected) {
+            talonSrxWheeler = null;
+            Logger.problem("Wheeler talon is not connected! Disabling...");
+        }
+    }
+
 }

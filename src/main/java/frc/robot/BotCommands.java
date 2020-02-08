@@ -4,19 +4,19 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.commands.auto.*;
-import frc.robot.commands.colorwheel.*;
 import frc.robot.commands.conveyor.*;
 import frc.robot.commands.diffdriver.*;
 import frc.robot.commands.lighter.*;
 import frc.robot.commands.pickup.*;
 import frc.robot.commands.shooter.*;
+import frc.robot.commands.wheeler.*;
 import frc.robot.consoles.Logger;
 
 // Contains singleton instances of all the commands on the robot.
 public class BotCommands {
 
     // Autonomous
-    public static AutoDriveForward autoPeriod;
+    public static AutoDriveForward autoDriveForward;
 
     // Conveyor
     public static MoveConveyor moveConveyor;
@@ -36,19 +36,17 @@ public class BotCommands {
     public static ShootBall shootBall;
     public static StopShooter stopShooter;
 
-    // Color Wheel
+    // Wheeler
     public static SpinColorWheel spinColorWheel;
     public static StopColorWheel stopColorWheel;
-    public static DetectColor detectColor;
-    public static SwitchMode switchMode;
-    public static RotateWheel rotateWheel;
+    public static TwirlWheel twirlWheel;
 
     // Initialize all robot commands
     public static void initializeCommands() {
         Logger.setup("Initializing BotCommands...");
 
         // Autonomous
-        autoPeriod = new AutoDriveForward(BotSubsystems.diffDriver);
+        autoDriveForward = new AutoDriveForward(BotSubsystems.diffDriver);
 
         // Conveyor
         moveConveyor = new MoveConveyor(BotSubsystems.conveyor);
@@ -68,17 +66,15 @@ public class BotCommands {
         shootBall = new ShootBall(BotSubsystems.shooter);
         stopShooter = new StopShooter(BotSubsystems.shooter);
 
-        // Color Wheel
-        spinColorWheel = new SpinColorWheel(BotSubsystems.colorwheel);
-        stopColorWheel = new StopColorWheel(BotSubsystems.colorwheel);
-        detectColor = new DetectColor(BotSubsystems.targetColor);
-        switchMode = new SwitchMode(BotSubsystems.colorMode);
-        rotateWheel = new RotateWheel(BotSubsystems.colorwheel);
+        // Wheeler
+        spinColorWheel = new SpinColorWheel(BotSubsystems.wheeler);
+        stopColorWheel = new StopColorWheel(BotSubsystems.wheeler);
+        twirlWheel = new TwirlWheel(BotSubsystems.wheeler);
     }
 
     // Return the command to run in autonomous mode
     public static Command getAutonomousCommand() {
-        return autoPeriod;
+        return autoDriveForward;
     }
 
 }
