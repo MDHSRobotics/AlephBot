@@ -3,7 +3,7 @@ package frc.robot;
 
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SPI;
-import io.github.pseudoresonance.pixy2api.links.SPILink;
+import io.github.pseudoresonance.pixy2api.Pixy2.LinkType;
 import io.github.pseudoresonance.pixy2api.Pixy2;
 
 import frc.robot.consoles.Logger;
@@ -15,8 +15,7 @@ public class BotSensors {
     public static final AHRS gyro = new AHRS(SPI.Port.kMXP);
 
     // Pixy
-    public static final SPILink spiLink = new SPILink();
-    public static final Pixy2 pixy = Pixy2.createInstance(spiLink);
+    public static final Pixy2 pixy = Pixy2.createInstance(LinkType.SPI);
 
     // This initialization is called in RobotManager at startup.
     public static void initializeSensors() {
