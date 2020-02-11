@@ -92,7 +92,7 @@ public class Wheeler extends SubsystemBase {
         int distance = 100;
         int spoolDiameter = 4;
         double ticks = EncoderUtils.translateDistanceToTicks(distance, spoolDiameter, 16);
-        Logger.info("ColorWheel -> Motion Magic to OPEN: " + distance + " feet, " + ticks + " ticks");
+        Logger.info("Wheeler -> Motion Magic to OPEN: " + distance + " feet, " + ticks + " ticks");
 
         if (m_disabled) return;
         talonSrxWheeler.set(ControlMode.MotionMagic, ticks);
