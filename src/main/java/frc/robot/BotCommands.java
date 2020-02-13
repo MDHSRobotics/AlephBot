@@ -39,7 +39,7 @@ public class BotCommands {
     // Wheeler
     public static SpinColorWheel spinColorWheel;
     public static StopColorWheel stopColorWheel;
-    public static TwirlWheel twirlWheel;
+    public static TwirlWheelThreeTimes twirlWheel;
 
     // Initialize all robot commands
     public static void initializeCommands() {
@@ -69,7 +69,7 @@ public class BotCommands {
         // Wheeler
         spinColorWheel = new SpinColorWheel(BotSubsystems.wheeler);
         stopColorWheel = new StopColorWheel(BotSubsystems.wheeler);
-        twirlWheel = new TwirlWheel(BotSubsystems.wheeler);
+        twirlWheel = new TwirlWheelThreeTimes(BotSubsystems.wheeler);
     }
 
     // Return the command to run in autonomous mode

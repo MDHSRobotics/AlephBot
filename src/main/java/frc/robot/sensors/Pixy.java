@@ -13,7 +13,7 @@ import frc.robot.BotSensors;
 
 public class Pixy {
 
-    public static String detectedColor;
+    private static String detectedColor;
     private static RGB rgb;
     private static final int blockSignature = 1;
 
@@ -43,8 +43,8 @@ public class Pixy {
             }
         }
         Pixy2Video video = BotSensors.pixy.getVideo();
-        int detectedRGB = video.getRGB(5, 5, rgb, true);
-        Logger.info("Pixy -> detectColor -> RGB: " + detectedRGB);
+        int detectedRGB = video.getRGB(100, 100, rgb, true);
+        Logger.info("Pixy -> detectColor -> RGB: " + "r: " + rgb.getR() + "g: " + rgb.getG() + "b " + rgb.getB());
 
         // TODO: check values
         boolean redDetected = (detectedRGB == 1);
