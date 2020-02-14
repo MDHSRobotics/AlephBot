@@ -12,22 +12,23 @@ public class TwirlWheelThreeTimes extends CommandBase {
 
 	private Wheeler m_wheeler;
 
-    static String initDetectedColor;
-    private int colorCounter = 0;
-    private int detectCounter;
+    private String m_initDetectedColor;
+    private int m_numOfHalfTurns = 0;
+    private int m_detectCounter;
+    private boolean m_seenWrongColor = false;
 
-    public TwirlWheelThreeTimes(Wheeler colorwheel) {
+    public TwirlWheelThreeTimes(Wheeler wheeler) {
         Logger.setup("Constructing Command: TwirlWheel...");
 
         // Add given subsystem requirements
-        m_wheeler = colorwheel;
+        m_wheeler = wheeler;
         addRequirements(m_wheeler);
     }
 
 	@Override
     public void initialize() {
         Logger.action("Initializing Command: TwirlWheel...");
-        initDetectedColor = Pixy.detectColor();
+        m_initDetectedColor = Pixy.detectColor();
     }
 
     @Override
@@ -36,32 +37,26 @@ public class TwirlWheelThreeTimes extends CommandBase {
        String detectedColor = Pixy.detectColor();
 
         m_wheeler.spinWheel();
-        if (detectedColor == initDetectedColor) {
-            detectCounter = 0;
+        if (detectedColor == m_initDetectedColor) {
+            m_detectCounter = 0;
         } else {
-            detectCounter = 1;
+            m_detectCounter = -1;
         }
 
-        switch (detectCounter) {
-	    case 0 :
-                colorCounter += 1;
-                if (colorCounter == 7) {
-                    m_wheeler.stopWheel();
-                }
-                break;
-            default:
-                break;
+        if (m_detectCounter == 0) {
+            if (m_seenWrongColor == true) {
+                m_numOfHalfTurns += 1;
+                m_seenWrongColor = false;
+            }
+        } else if (m_detectCounter == -1) {
+            m_seenWrongColor = true;
         }
 
     }
 
-
-
-
-
     @Override
     public boolean isFinished() {
-        boolean finished = (colorCounter >= 7);
+        boolean finished = (m_numOfHalfTurns >= 7);
         return finished;
     }
 
