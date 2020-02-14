@@ -22,7 +22,7 @@ public class Pixy {
 
     public static String detectColor() {
         Pixy2CCC ccc = BotSensors.pixy.getCCC();
-        int blockCount = ccc.getBlocks(false, Pixy2CCC.CCC_SIG1, 25);
+        int blockCount = ccc.getBlocks(true, Pixy2CCC.CCC_SIG7, 1);
         if (blockCount <= 0) {
             Logger.problem("Pixy -> detectColor -> No block count");
         }

@@ -12,6 +12,10 @@ public class SpinColorWheel extends CommandBase {
 
     private Wheeler m_wheeler;
 
+    private int m_detectCounter;
+    private boolean m_seenWrongColor = false;
+    private boolean m_objectiveColorFound = false;
+
     public SpinColorWheel(Wheeler colorwheel) {
         Logger.setup("Constructing Command: SpinColorWheel...");
 
@@ -27,31 +31,27 @@ public class SpinColorWheel extends CommandBase {
 
     @Override
     public void execute() {
-        if (Pixy.switchColor() == "Red") {
-            while (Pixy.detectColor() != "Red") {
-                m_wheeler.spinWheel();
-            }
-        }
-        else if (Pixy.switchColor() == "Yellow") {
-            while (Pixy.detectColor()!= "Yellow") {
-                m_wheeler.spinWheel();
-            }
-        }
-        else if (Pixy.switchColor() == "Green") {
-            while (Pixy.detectColor() != "Green") {
-                m_wheeler.spinWheel();
-            }
-        }
-        else if (Pixy.switchColor() == "Blue") {
-            while (Pixy.detectColor() != "Blue") {
-                m_wheeler.spinWheel();
-            }
-        }
-    }
+        String detectedColor = Pixy.detectColor();
 
+                m_wheeler.spinWheel();
+                if (detectedColor == Pixy.switchColor()) {
+                    m_detectCounter = 0;
+                } else {
+                    m_detectCounter = -1;
+                }
+
+                if (m_detectCounter == 0) {
+                    if (m_seenWrongColor == true) {
+                        m_objectiveColorFound = true;
+                    }
+                } else if (m_detectCounter == -1) {
+                    m_seenWrongColor = true;
+                }
+    }
     @Override
     public boolean isFinished() {
-        return false;
+        boolean finished = (m_objectiveColorFound == true);
+        return finished;
     }
 
     @Override
