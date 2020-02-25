@@ -5,6 +5,7 @@ import io.github.pseudoresonance.pixy2api.Pixy2CCC;
 import io.github.pseudoresonance.pixy2api.Pixy2CCC.Block;
 import io.github.pseudoresonance.pixy2api.Pixy2Video;
 import io.github.pseudoresonance.pixy2api.Pixy2Video.RGB;
+import edu.wpi.first.wpilibj.DriverStation;
 
 import java.util.ArrayList;
 
@@ -69,10 +70,17 @@ public class Pixy {
     }
 
     public static String switchColor() {
-        if (colorCounter == 4) {
+
+        String gameData = DriverStation.getInstance().getGameSpecificMessage();
+
+        if ((gameData.charAt(0)) == 'R') {
             colorCounter = 1;
-        } else {
-            colorCounter += 1;
+        } else if ((gameData.charAt(0)) == 'Y') {
+            colorCounter = 2;
+        } else if ((gameData.charAt(0)) == 'G') {
+            colorCounter = 3;
+        } else if ((gameData.charAt(0)) == 'B') {
+            colorCounter = 4;
         }
 
         if (colorCounter == 1) {
