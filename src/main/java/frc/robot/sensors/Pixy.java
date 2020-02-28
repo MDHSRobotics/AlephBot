@@ -51,8 +51,8 @@ public class Pixy {
         Logger.info("Pixy -> detectColor -> RGB: " + detectedRGB);
 
         // TODO: check values
-        boolean redDetected = (rgb.getR() > 0) && (rgb.getG() > 0) && rgb.getB() != 0));
-        boolean yellowDetected = (rgb.getR() > 0) && (rgb.getG() != 0) && rgb.getB() != 0));
+        boolean redDetected = (rgb.getR() > 0) && (rgb.getG() > 0) && rgb.getB() = 0));
+        boolean yellowDetected = (rgb.getR() > 0) && (rgb.getG() != 0) && rgb.getB() = 0));
         boolean greenDetected = (detectedRGB == 3);
         boolean blueDetected = (detectedRGB == 4);
 
