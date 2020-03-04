@@ -46,12 +46,12 @@ public class Pixy {
         Pixy2Video video = BotSensors.pixy.getVideo();
         rgb = video.new RGB(0, 0, 0);
         int detectedRGB = video.getRGB(5, 5, rgb, true);
-        BotSensors.pixy.setLamp((byte) 0, (byte) 1);
+        BotSensors.pixy.setLamp((byte) 1, (byte) 0);
         Logger.info("Pixy -> detectColor -> RGB: " + "R: " + rgb.getR() + "G: " + rgb.getG() + "B: " + rgb.getB());
         Logger.info("Pixy -> detectColor -> RGB: " + detectedRGB);
 
         // TODO: check values
-        boolean redDetected = ((rgb.getR() > 0) && (rgb.getG() > 0) && (rgb.getB() == 0));
+        boolean redDetected = (((rgb.getR() > 0) && (rgb.getG() > 0) && (rgb.getB() == 0)) || ((rgb.getR() == 0) && (rgb.getG() > 0) && (rgb.getB() == 0)));
         boolean yellowDetected = ((rgb.getR() > 0) && (rgb.getG() == 0) && (rgb.getB() == 0));
         boolean greenDetected = ((rgb.getR() == 0) && (rgb.getG() == 0) && (rgb.getB() >= 60));
         boolean blueDetected = ((rgb.getR() == 0) && (rgb.getG() == 0) && (rgb.getB() <= 45));

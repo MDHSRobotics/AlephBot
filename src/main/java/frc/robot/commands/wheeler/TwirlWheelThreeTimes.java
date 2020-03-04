@@ -47,6 +47,7 @@ public class TwirlWheelThreeTimes extends CommandBase {
             if (m_seenWrongColor == true) {
                 m_numOfHalfTurns += 1;
                 m_seenWrongColor = false;
+                Logger.info("TURNS: " + m_numOfHalfTurns);
             }
         } else if (m_detectCounter == -1) {
             m_seenWrongColor = true;
