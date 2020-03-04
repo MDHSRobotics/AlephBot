@@ -46,7 +46,7 @@ public class Pixy {
         Pixy2Video video = BotSensors.pixy.getVideo();
         rgb = video.new RGB(0, 0, 0);
         int detectedRGB = video.getRGB(5, 5, rgb, true);
-        BotSensors.pixy.setLamp((byte) 1, (byte) 1);
+        BotSensors.pixy.setLamp((byte) 0, (byte) 1);
         Logger.info("Pixy -> detectColor -> RGB: " + "R: " + rgb.getR() + "G: " + rgb.getG() + "B: " + rgb.getB());
         Logger.info("Pixy -> detectColor -> RGB: " + detectedRGB);
 
