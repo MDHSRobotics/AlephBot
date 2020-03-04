@@ -23,7 +23,7 @@ public class Pixy {
 
     public static String detectColor() {
         Pixy2CCC ccc = BotSensors.pixy.getCCC();
-        int blockCount = ccc.getBlocks(true, Pixy2CCC.CCC_SIG7, 1);
+        int blockCount = ccc.getBlocks(true, Pixy2CCC.CCC_SIG_ALL, 1);
         if (blockCount <= 0) {
             Logger.problem("Pixy -> detectColor -> No block count");
         }
@@ -53,8 +53,8 @@ public class Pixy {
         // TODO: check values
         boolean redDetected = ((rgb.getR() > 0) && (rgb.getG() > 0) && (rgb.getB() == 0));
         boolean yellowDetected = ((rgb.getR() > 0) && (rgb.getG() == 0) && (rgb.getB() == 0));
-        boolean greenDetected = (detectedRGB == 3);
-        boolean blueDetected = (detectedRGB == 4);
+        boolean greenDetected = ((rgb.getR() == 0) && (rgb.getG() == 0) && (rgb.getB() >= 60));
+        boolean blueDetected = ((rgb.getR() == 0) && (rgb.getG() == 0) && (rgb.getB() <= 45));
 
         if (redDetected) {
             detectedColor = "Red";
