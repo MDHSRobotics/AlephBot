@@ -58,6 +58,7 @@ public class TwirlWheelThreeTimes extends CommandBase {
     @Override
     public boolean isFinished() {
         boolean finished = (m_numOfHalfTurns >= 7);
+        m_numOfHalfTurns = 0;
         return finished;
     }
 
