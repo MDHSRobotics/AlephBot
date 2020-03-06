@@ -44,17 +44,21 @@ public class Pixy {
             }
         }
         Pixy2Video video = BotSensors.pixy.getVideo();
-        rgb = video.new RGB(0, 0, 0);
-        int detectedRGB = video.getRGB(5, 5, rgb, true);
-        BotSensors.pixy.setLamp((byte) 1, (byte) 0);
-        Logger.info("Pixy -> detectColor -> RGB: " + "R: " + rgb.getR() + "G: " + rgb.getG() + "B: " + rgb.getB());
-        Logger.info("Pixy -> detectColor -> RGB: " + detectedRGB);
+        rgb = video.new RGB(1, 1, 1);
 
-        // TODO: check values
-        boolean redDetected = (((rgb.getR() > 0) && (rgb.getG() > 0) && (rgb.getB() == 0)) || ((rgb.getR() == 0) && (rgb.getG() > 0) && (rgb.getB() == 0)));
-        boolean yellowDetected = ((rgb.getR() > 0) && (rgb.getG() == 0) && (rgb.getB() == 0));
-        boolean greenDetected = ((rgb.getR() == 0) && (rgb.getG() == 0) && (rgb.getB() >= 60));
-        boolean blueDetected = ((rgb.getR() == 0) && (rgb.getG() == 0) && (rgb.getB() <= 45));
+        byte r = rgb.getR();
+        byte g = rgb.getG();
+        byte b = rgb.getB();
+
+        BotSensors.pixy.setLamp((byte) 0, (byte) 0);
+        video.getRGB(5, 5, rgb, true);
+        Logger.info("Pixy -> detectColor -> RGB: " + "R: " + r + ", G: " + g + ", B: " + b);
+
+        boolean redDetected = (((r > 0) && (g > 0) && (b == 0)) || ((r == 0) && (g > 0) && (b == 0)));
+        boolean yellowDetected = ((r > 0) && (g == 0) && (b == 0));
+        boolean greenDetected = ((r == 0) && (g == 0) && (b >= 60));
+        boolean blueDetected = ((r == 0) && (g == 0) && (b <= 45));
+        boolean nothingDetected = ((r == 0) && (g == 0) && (b == 0));
 
         if (redDetected) {
             detectedColor = "Red";
@@ -67,7 +71,12 @@ public class Pixy {
         }
         else if (blueDetected) {
             detectedColor = "Blue";
+        } else if (nothingDetected) {
+            detectedColor = "White";
         }
+
+        Logger.info("Detected Color: " + detectedColor);
+
         return detectedColor;
     }
 

@@ -13,9 +13,9 @@ public class TwirlWheelThreeTimes extends CommandBase {
 	private Wheeler m_wheeler;
 
     private String m_initDetectedColor;
-    private int m_numOfHalfTurns = 0;
+    private int m_numOfHalfTurns;
     private int m_detectCounter;
-    private boolean m_seenWrongColor = false;
+    private boolean m_seenWrongColor;
 
     public TwirlWheelThreeTimes(Wheeler wheeler) {
         Logger.setup("Constructing Command: TwirlWheel...");
@@ -29,6 +29,10 @@ public class TwirlWheelThreeTimes extends CommandBase {
     public void initialize() {
         Logger.action("Initializing Command: TwirlWheel...");
         m_initDetectedColor = Pixy.detectColor();
+        m_numOfHalfTurns = 0;
+        m_seenWrongColor = false;
+        Logger.info("Initial Detected Color: " + m_initDetectedColor);
+
     }
 
     @Override
@@ -36,10 +40,16 @@ public class TwirlWheelThreeTimes extends CommandBase {
 
        String detectedColor = Pixy.detectColor();
 
+       if (m_initDetectedColor == "White") {
+            m_numOfHalfTurns = 7;
+       } else {
+
         m_wheeler.spinWheel();
         if (detectedColor == m_initDetectedColor) {
             m_detectCounter = 0;
-        } else {
+        } else if (detectedColor == "White") {
+            m_detectCounter = 1;
+        } else if (detectedColor != m_initDetectedColor) {
             m_detectCounter = -1;
         }
 
@@ -51,14 +61,15 @@ public class TwirlWheelThreeTimes extends CommandBase {
             }
         } else if (m_detectCounter == -1) {
             m_seenWrongColor = true;
+
         }
+    }
 
     }
 
     @Override
     public boolean isFinished() {
         boolean finished = (m_numOfHalfTurns >= 7);
-        m_numOfHalfTurns = 0;
         return finished;
     }
 
