@@ -31,8 +31,8 @@ public class Devices {
 
     static WPI_TalonSRX talonSrxPickup = new WPI_TalonSRX(2); // 1 motor
 
-    static WPI_TalonSRX talonSrxShooterLeftWheel = new WPI_TalonSRX(12);
-    static WPI_TalonSRX talonSrxShooterRightWheel = new WPI_TalonSRX(14);
+    static WPI_TalonSRX talonSrxShooterLeftWheel = new WPI_TalonSRX(5);
+    static WPI_TalonSRX talonSrxShooterRightWheel = new WPI_TalonSRX(6);
 
     static WPI_TalonSRX talonSrxWheeler = new WPI_TalonSRX(2); // 1 motor
 

@@ -36,8 +36,8 @@ public class Shooter extends SubsystemBase {
 
     public void spinWheels() {
         if (m_disabled) return;
-        talonSrxShooterLeftWheel.set(0.8);
-        talonSrxShooterRightWheel.set(0.8);
+        talonSrxShooterLeftWheel.set(-0.3);
+        talonSrxShooterRightWheel.set(0.3);
     }
 
 }
