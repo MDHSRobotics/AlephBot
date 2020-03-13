@@ -5,6 +5,7 @@ import io.github.pseudoresonance.pixy2api.Pixy2Video;
 import io.github.pseudoresonance.pixy2api.Pixy2Video.RGB;
 
 import frc.robot.consoles.Logger;
+import edu.wpi.first.wpilibj.DriverStation;
 import frc.robot.BotSensors;
 
 public class Pixy {
@@ -60,15 +61,15 @@ public class Pixy {
 
     public static String switchColor() {
 
-        char gameData = 'R';
+        String gameData = DriverStation.getInstance().getGameSpecificMessage();
 
-        if (gameData == 'R') {
+        if ((gameData.charAt(0)) == 'R') {
             colorCounter = 1;
-        } else if (gameData == 'Y') {
+        } else if ((gameData.charAt(0)) == 'Y') {
             colorCounter = 2;
-        } else if (gameData == 'G') {
+        } else if ((gameData.charAt(0)) == 'G') {
             colorCounter = 3;
-        } else if (gameData == 'B') {
+        } else if ((gameData.charAt(0)) == 'B') {
             colorCounter = 4;
         }
 
