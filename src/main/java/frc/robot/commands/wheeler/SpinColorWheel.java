@@ -13,8 +13,8 @@ public class SpinColorWheel extends CommandBase {
     private Wheeler m_wheeler;
 
     private int m_detectCounter;
-    private boolean m_seenWrongColor = false;
-    private boolean m_objectiveColorFound = false;
+    private boolean m_seenWrongColor;
+    private boolean m_objectiveColorFound;
 
     public SpinColorWheel(Wheeler colorwheel) {
         Logger.setup("Constructing Command: SpinColorWheel...");
@@ -27,6 +27,8 @@ public class SpinColorWheel extends CommandBase {
     @Override
     public void initialize() {
         Logger.action("Initializing Command: SpinColorWheel...");
+        m_seenWrongColor = false;
+        m_objectiveColorFound = false;
     }
 
     @Override
@@ -34,6 +36,7 @@ public class SpinColorWheel extends CommandBase {
         String detectedColor = Pixy.detectColor();
 
                 m_wheeler.spinWheel();
+
                 if (detectedColor == Pixy.switchColor()) {
                     m_detectCounter = 0;
                 } else {
