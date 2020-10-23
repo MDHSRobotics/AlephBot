@@ -8,7 +8,6 @@ import frc.robot.subsystems.Wheeler;
 
 // This command stop spinning the color wheel.
 public class StopColorWheel extends CommandBase {
-
     private Wheeler m_colorwheel;
 
     public StopColorWheel(Wheeler colorwheel) {
@@ -22,6 +21,8 @@ public class StopColorWheel extends CommandBase {
     @Override
     public void initialize() {
         Logger.action("Initializing Command: StopColorWheel...");
+        m_seenWrongColor = false;
+        m_objectiveColorFound = false;
     }
 
     @Override

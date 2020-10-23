@@ -27,7 +27,7 @@ public class TwirlWheelThreeTimes extends CommandBase {
 
 	@Override
     public void initialize() {
-        Logger.action("Initializing Command: TwirlWheel...");
+        Logger.action("Initializing Command: TwirlWheelThreeTimes...");
         m_initDetectedColor = Pixy.detectColor();
         m_numOfHalfTurns = 0;
         m_seenWrongColor = false;
