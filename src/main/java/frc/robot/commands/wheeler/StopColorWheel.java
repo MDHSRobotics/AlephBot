@@ -21,8 +21,6 @@ public class StopColorWheel extends CommandBase {
     @Override
     public void initialize() {
         Logger.action("Initializing Command: StopColorWheel...");
-        m_seenWrongColor = false;
-        m_objectiveColorFound = false;
     }
 
     @Override
