@@ -12,6 +12,7 @@ public class ArcadeMovement {
     public double strafeSpeed = 0; // y Side to Side
 
     public ArcadeMovement() {
+        // this is redefined.
     }
 
     public ArcadeMovement(double xStraightSpeed, double zRotationSpeed, double yStrafeSpeed) {

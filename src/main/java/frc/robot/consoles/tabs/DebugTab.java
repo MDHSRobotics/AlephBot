@@ -22,16 +22,18 @@ public class DebugTab {
 
     // Create Brain Widgets
     public void preInitialize() {
+        // without any objects in here this breaks
     }
 
     // Create all other Widgets
     public void initialize() {
         //  Command Scheduler - Not sure why this isn't working
+        // Perhaps change to a log?
         CommandScheduler sched = CommandScheduler.getInstance();
         m_schedulerWidget = m_tab.add("Command Scheduler", sched);
     }
 
-    // Configure all Widgets
+    // Configure all Widgets (Why)
     public void configure() {
         m_schedulerWidget.withPosition(0, 1);
         m_schedulerWidget.withSize(2, 1);
@@ -39,6 +41,7 @@ public class DebugTab {
 
     // This will be called in the robotPeriodic
     public void update() {
+        // without any objects in here this breaks
     }
 
 }

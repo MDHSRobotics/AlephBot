@@ -9,6 +9,7 @@ public class VirtualButton extends Trigger {
     public boolean active = false;
 
     public VirtualButton() {
+        // we seriously need to stop declaring variables and not putting code in them
     }
 
     @Override

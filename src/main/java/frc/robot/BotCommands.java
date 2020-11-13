@@ -15,29 +15,29 @@ import frc.robot.consoles.Logger;
 // Contains singleton instances of all the commands on the robot.
 public class BotCommands {
 
-    // Autonomous
+    // Autonomous //
     public static AutoDriveForward autoDriveForward;
     public static AutoDriveForwardShoot autoDriveForwardShoot;
 
-    // Conveyor
+    // Conveyor //
     public static MoveConveyor moveConveyor;
     public static StopConveyor stopConveyor;
 
-    // DiffDriver
+    // DiffDriver //
     public static DriveDiffTank driveDifferentialTank;
 
     // Lighter
     public static CycleLights cycleLights;
 
-    // Pickup
+    // Pickup //
     public static SpinPickup spinPickup;
     public static StopPickup stopPickup;
 
-    // Shooter
+    // Shooter //
     public static ShootBall shootBall;
     public static StopShooter stopShooter;
 
-    // Wheeler
+    // Wheeler //
     public static SpinColorWheel spinColorWheel;
     public static StopColorWheel stopColorWheel;
     public static TwirlWheelThreeTimes twirlWheel;
@@ -46,35 +46,35 @@ public class BotCommands {
     public static void initializeCommands() {
         Logger.setup("Initializing BotCommands...");
 
-        // Autonomous
+        // Autonomous //
         autoDriveForward = new AutoDriveForward(BotSubsystems.diffDriver);
         autoDriveForwardShoot = new AutoDriveForwardShoot(BotSubsystems.diffDriver);
 
-        // Conveyor
+        // Conveyor //
         moveConveyor = new MoveConveyor(BotSubsystems.conveyor);
         stopConveyor = new StopConveyor(BotSubsystems.conveyor);
 
-        // DiffDriver
+        // DiffDriver //
         driveDifferentialTank = new DriveDiffTank(BotSubsystems.diffDriver);
 
-        // Lighter
+        // Lighter //
         cycleLights = new CycleLights(BotSubsystems.lighter);
 
-        // Pickup
+        // Pickup //
         spinPickup = new SpinPickup(BotSubsystems.pickup);
         stopPickup = new StopPickup(BotSubsystems.pickup);
 
-        // Shooter
+        // Shooter //
         shootBall = new ShootBall(BotSubsystems.shooter);
         stopShooter = new StopShooter(BotSubsystems.shooter);
 
-        // Wheeler
+        // Wheeler //
         spinColorWheel = new SpinColorWheel(BotSubsystems.wheeler);
         stopColorWheel = new StopColorWheel(BotSubsystems.wheeler);
         twirlWheel = new TwirlWheelThreeTimes(BotSubsystems.wheeler);
     }
 
-    // Return the command to run in autonomous mode
+    // Return the command to run in autonomous mode //
     public static Command getAutonomousCommand() {
         return autoDriveForwardShoot;
     }

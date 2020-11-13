@@ -11,6 +11,7 @@ public class Pixy {
     public static int colorCounter = 0;
     public static String colorMode;
 
+    //TODO: figure out why the hell this wont work
     public static String detectColor() {
 
         byte redCCC = Pixy2CCC.CCC_SIG1;
@@ -25,6 +26,7 @@ public class Pixy {
 
         String colorWithHighestCount = "None";
 
+        // compares red values to green values
         if (redBlockCount > greenBlockCount) {
             if (redBlockCount > blueBlockCount) {
                 if (redBlockCount > yellowBlockCount) {
@@ -33,6 +35,7 @@ public class Pixy {
             }
         }
 
+        // compares green values to red values
         if (greenBlockCount > redBlockCount) {
             if (greenBlockCount > blueBlockCount) {
                 if (greenBlockCount > yellowBlockCount) {
@@ -41,6 +44,7 @@ public class Pixy {
             }
         }
 
+        // compares blue values to green values
         if (blueBlockCount > greenBlockCount) {
             if (blueBlockCount > redBlockCount) {
                 if (blueBlockCount > yellowBlockCount) {
@@ -49,6 +53,7 @@ public class Pixy {
             }
         }
 
+        // compares yellow values to green values
         if (yellowBlockCount > greenBlockCount) {
             if (yellowBlockCount > redBlockCount) {
                 if (yellowBlockCount > blueBlockCount) {

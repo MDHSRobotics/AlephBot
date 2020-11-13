@@ -17,7 +17,7 @@ public class MainTab {
     private ComplexWidget m_autoCmdWidget;
     private SimpleWidget m_matchTimeWidget;
 
-    // Constructor
+    // Constructor (of Main)
     public MainTab() {
         ShuffleLogger.logTrivial("Constructing MainTab...");
 
@@ -26,7 +26,9 @@ public class MainTab {
 
     // Create Brain Widgets
     public void preInitialize() {
-        // Match Time
+        // Match Time (with what?)
+        // Suggested fix for problem (by computer): change to static or remove.
+        // Variable Type problem?
         m_matchTimeWidget = m_tab.add("Match Time", ShufflerBrain.matchTimeDefault);
         ShufflerBrain.matchTimeEntry = m_matchTimeWidget.getEntry();
     }

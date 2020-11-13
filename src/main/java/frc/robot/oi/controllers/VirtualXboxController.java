@@ -25,6 +25,7 @@ public class VirtualXboxController extends GenericHID {
         resetInputs();
     }
 
+    // resets all inouts
     public void resetInputs() {
         xLeft = 0.0;
         yLeft = 0.0;
@@ -36,6 +37,7 @@ public class VirtualXboxController extends GenericHID {
         triggerAxisRight = 0.0;
     }
 
+    //Gets the X value
     @Override
     public double getX(Hand hand) {
         switch (hand) {
@@ -45,6 +47,7 @@ public class VirtualXboxController extends GenericHID {
         }
     }
 
+    // Gets the Y value on controller
     @Override
     public double getY(Hand hand) {
         switch (hand) {
@@ -54,6 +57,7 @@ public class VirtualXboxController extends GenericHID {
         }
     }
 
+    // creates dpad direction and its degree
     @Override
     public int getPOV(int pov) {
         if (!dpadActive) return -1;

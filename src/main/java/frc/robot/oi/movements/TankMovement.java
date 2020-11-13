@@ -11,6 +11,7 @@ public class TankMovement {
     public double rightSpeed = 0; // x right Forward & Backward
 
     public TankMovement() {
+        // this is redefined.
     }
 
     public TankMovement(double xLeftSpeed, double xRightSpeed) {

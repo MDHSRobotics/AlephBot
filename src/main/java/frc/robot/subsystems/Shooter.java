@@ -22,12 +22,12 @@ public class Shooter extends SubsystemBase {
             Logger.problem("Shoooter devices not initialized! Disabling subsystem...");
             return;
         }
-        //configure the subsystem devices
+        // Configures the subsystem devices
         talonSrxShooterLeftWheel.configFactoryDefault();
         talonSrxShooterRightWheel.configFactoryDefault();
     }
 
-    // Stop the shooter motor
+    // Stops the shooter motor
     public void stop() {
         if (m_disabled) return;
         talonSrxShooterLeftWheel.stopMotor();

@@ -27,6 +27,8 @@ public class Conveyor extends SubsystemBase {
     @Override
     public void periodic() {
         // This method will be called once per scheduler run
+        // why is there still no code in these randomly declared variables,
+        // and why are they not used in this file?
     }
 
     // Stop the Conveyor motor

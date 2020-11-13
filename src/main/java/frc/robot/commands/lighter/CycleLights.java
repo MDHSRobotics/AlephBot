@@ -44,7 +44,8 @@ public class CycleLights extends CommandBase {
         m_lighter.turnOffBoth();
     }
 
-    @Override
+
+    /    @Override
     public void execute() {
         double currentTime = m_timer.get();
         if (currentTime > NUM_SECONDS_PER_LIGHT) {

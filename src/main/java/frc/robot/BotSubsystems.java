@@ -14,7 +14,7 @@ public class BotSubsystems {
     public static Shooter shooter;
     public static Wheeler wheeler;
 
-    // Initialize all robot subsystems
+    // Initialize all robot subsystems //
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
 
@@ -28,29 +28,34 @@ public class BotSubsystems {
 
     // Set all the subsystem "teleop" default commands
     public static void setTeleopDefaultCommands() {
-        // Conveyor
+        // Conveyor //
         Logger.setup("Conveyor DefaultCommand -> StopConveyor...");
         conveyor.setDefaultCommand(BotCommands.stopConveyor);
 
-        // DiffDriver
+        // DiffDriver //
         Logger.setup("DiffDriver DefaultCommand -> DriveDifferentialTank...");
         diffDriver.setDefaultCommand(BotCommands.driveDifferentialTank);
 
-        // Pickup
+        // Pickup //
         Logger.setup("Pickup DefaultCommand -> StopPickup...");
         pickup.setDefaultCommand(BotCommands.stopPickup);
 
-        // Shooter
+        // Shooter //
         Logger.setup("Shooter DefaultCommand -> StopShooter...");
         shooter.setDefaultCommand(BotCommands.stopShooter);
 
-        // Wheeler
+        // Wheeler //
         Logger.setup("ColorWheel DefaultCommand -> StopColorWheel...");
         wheeler.setDefaultCommand(BotCommands.stopColorWheel);
     }
 
-    // Set all the subsystem "test" default commands
+    // Set all the subsystem "test" default commands //
     public static void setTestDefaultCommands() {
+        // why
+        // is
+        // there
+        // no
+        // code
     }
 
 }

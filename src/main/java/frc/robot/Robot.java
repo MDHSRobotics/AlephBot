@@ -71,6 +71,8 @@ public class Robot extends TimedRobot {
         CommandScheduler.getInstance().cancelAll();
     }
 
+    // why would this disable periodic?
+    // also, code for disabling periodic is needed
     @Override
     public void disabledPeriodic() {
     }

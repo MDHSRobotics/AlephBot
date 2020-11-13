@@ -57,7 +57,7 @@ public class Devices {
         initWheelerDevices();
     }
 
-    // Conveyor
+    // Conveyor //
     private static void initConveyorDevices() {
         boolean talonSrxConveyorIsConnected = DeviceUtils.isConnected(talonSrxConveyor);
         if (!talonSrxConveyorIsConnected) {
@@ -66,7 +66,7 @@ public class Devices {
         }
     }
 
-    // Differential Drive
+    // Differential Drive //
     private static void initDiffDriverDevices() {
         boolean talonSrxDiffWheelFrontLeftIsConnected = DeviceUtils.isConnected(talonSrxDiffWheelFrontLeft);
         boolean talonSrxDiffWheelFrontRightIsConnected = DeviceUtils.isConnected(talonSrxDiffWheelFrontRight);
@@ -102,7 +102,7 @@ public class Devices {
         }
     }
 
-    // Pickup
+    // Pickup //
     private static void initPickupDevices() {
         boolean talonSrxPickupIsConnected = DeviceUtils.isConnected(talonSrxPickup);
         if (!talonSrxPickupIsConnected) {
@@ -111,7 +111,7 @@ public class Devices {
         }
     }
 
-    // Shooter
+    // Shooter //
     private static void initShooterDevices() {
         boolean talonSRXShooterLeftWheelIsConnected = DeviceUtils.isConnected(talonSrxShooterLeftWheel);
         boolean talonSRXShooterRightWheelIsConnected = DeviceUtils.isConnected(talonSrxShooterRightWheel);
@@ -133,7 +133,7 @@ public class Devices {
         }
     }
 
-    // Wheeler
+    // Wheeler //
     private static void initWheelerDevices() {
         boolean talonSrxWheelerIsConnected = DeviceUtils.isConnected(talonSrxWheeler);
         if (!talonSrxWheelerIsConnected) {

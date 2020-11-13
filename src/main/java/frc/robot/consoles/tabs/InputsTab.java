@@ -30,14 +30,20 @@ public class InputsTab {
     private SimpleWidget m_xRightSensitivityWidget;
 
     // Constructor
+
+    // Notes:
+    // errors for duplication of terms. Make functions
+    // that use the terms, or make variables and not strings
     public InputsTab() {
         ShuffleLogger.logTrivial("Constructing InputsTab...");
 
         m_tab = Shuffleboard.getTab("Inputs");
-
+        // errors on lines 46, 47, and 48. Cause: Duplication.
+        // Suggestion for fix: Make a function, or use a variable(?)
         m_controllersLayout = m_tab.getLayout("Controllers", BuiltInLayouts.kGrid);
         m_controllersLayout.withPosition(0, 0);
         m_controllersLayout.withSize(3, 1);
+        // Problem is caused with dupliated strings, found under this comment
         m_controllersLayout.withProperties(Map.of("Number of columns", 1));
         m_controllersLayout.withProperties(Map.of("Number of rows", 2));
         m_controllersLayout.withProperties(Map.of("Label position", "LEFT"));
@@ -45,6 +51,7 @@ public class InputsTab {
         m_xboxLeftLayout = m_tab.getLayout("XBOX Left Thumbstick", BuiltInLayouts.kGrid);
         m_xboxLeftLayout.withPosition(0, 1);
         m_xboxLeftLayout.withSize(3, 1);
+        // Duplicates                          are here
         m_xboxLeftLayout.withProperties(Map.of("Number of columns", 2));
         m_xboxLeftLayout.withProperties(Map.of("Number of rows", 2));
         m_xboxLeftLayout.withProperties(Map.of("Label position", "LEFT"));
@@ -52,6 +59,7 @@ public class InputsTab {
         m_xboxRightLayout = m_tab.getLayout("XBOX Right Thumbstick", BuiltInLayouts.kGrid);
         m_xboxRightLayout.withPosition(0, 2);
         m_xboxRightLayout.withSize(3, 1);
+        // Duplicates                          are here
         m_xboxRightLayout.withProperties(Map.of("Number of columns", 2));
         m_xboxRightLayout.withProperties(Map.of("Number of rows", 2));
         m_xboxRightLayout.withProperties(Map.of("Label position", "LEFT"));
@@ -59,6 +67,7 @@ public class InputsTab {
         m_joystickLayout = m_tab.getLayout("Joystick", BuiltInLayouts.kGrid);
         m_joystickLayout.withPosition(0, 3);
         m_joystickLayout.withSize(3, 2);
+        // Duplicates                          are here
         m_joystickLayout.withProperties(Map.of("Number of columns", 2));
         m_joystickLayout.withProperties(Map.of("Number of rows", 3));
         m_joystickLayout.withProperties(Map.of("Label position", "LEFT"));
@@ -66,7 +75,12 @@ public class InputsTab {
 
     // Create Brain Widgets
     public void preInitialize() {
+    // Enclosing errors, computer suggests adding "static"
+    // to the Deadzone definitions, or removing them. Maybe define them
+    // as public variables?
+    // Variable Type Problem?
         // Thumbstick - Left
+
         m_yLeftDeadZoneWidget = m_xboxLeftLayout.add("Y Left Dead Zone", XboxBrain.yLeftDeadZoneDefault);
         XboxBrain.yLeftDeadZoneEntry = m_yLeftDeadZoneWidget.getEntry();
         m_yLeftDeadZoneWidget.withWidget(BuiltInWidgets.kTextView);
@@ -101,16 +115,23 @@ public class InputsTab {
         m_xRightSensitivityWidget.withWidget(BuiltInWidgets.kTextView);
     }
 
+    // Code note for Widget Code: These constants have no
+    // code in them. They break without these comments.
+
     // Create all other Widgets
     public void initialize() {
+        // without any obects in here this breaks
     }
 
     // Configure all Widgets
     public void configure() {
+        // without any objects in here this breaks
+
     }
 
-    // This will be called in the robotPeriodic
+    // This will be called in the robotPeriodic (to do what?)
     public void update() {
+        // without any objects in here this breaks
     }
 
 }

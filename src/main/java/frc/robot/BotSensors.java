@@ -11,13 +11,13 @@ import frc.robot.consoles.Logger;
 // This class contains singleton instances of id mapped sensors.
 public class BotSensors {
 
-    // Attitude and Heading Reference Systems
+    // Attitude and Heading Reference Systems //
     public static final AHRS gyro = new AHRS(SPI.Port.kMXP);
 
     // Pixy
     public static final Pixy2 pixy = Pixy2.createInstance(LinkType.SPI);
 
-    // This initialization is called in RobotManager at startup.
+    // This initialization is called in RobotManager at startup. //
     public static void initializeSensors() {
         Logger.setup("Initializing BotSensors...");
 
@@ -25,7 +25,7 @@ public class BotSensors {
         initializePixy();
     }
 
-    // Gyro
+    // Gyro //
     private static void initializeGyro() {
         boolean gyroIsConnected = gyro.isConnected();
         if (!gyroIsConnected) {
@@ -33,7 +33,7 @@ public class BotSensors {
         }
     }
 
-    // Pixy
+    // Pixy //
     private static void initializePixy() {
         int result = pixy.init();
         if (result == Pixy2.PIXY_RESULT_ERROR) {

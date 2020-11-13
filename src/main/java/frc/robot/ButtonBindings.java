@@ -10,16 +10,16 @@ public class ButtonBindings {
     public static void configurePrimary() {
         Logger.setup("Configure Buttons -> Primary Controller...");
 
-        // Pickup
+        // Pickup //
         BotControllers.primary.btnA.whileHeld(BotCommands.spinPickup);
 
-        // Conveyor
+        // Conveyor //
         BotControllers.primary.btnY.whenPressed(BotCommands.moveConveyor);
 
-        // Shooter
+        // Shooter //
         BotControllers.primary.btnX.whileHeld(BotCommands.shootBall);
 
-        // Wheeler
+        // Wheeler //
         BotControllers.primary.btnBumperLeft.whenPressed(BotCommands.spinColorWheel);
         BotControllers.primary.btnBumperRight.whenPressed(BotCommands.twirlWheel);
     }
