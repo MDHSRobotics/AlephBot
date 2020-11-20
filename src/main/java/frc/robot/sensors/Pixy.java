@@ -11,7 +11,9 @@ public class Pixy {
     public static int colorCounter = 0;
     public static String colorMode;
 
-    //TODO: figure out why the hell this wont work
+    // detectColor's problem was that it had too many functions. Solved
+    // by nesting the 3 if statements per function into 1 if statement per function.
+
     public static String detectColor() {
 
         byte redCCC = Pixy2CCC.CCC_SIG1;
@@ -26,43 +28,41 @@ public class Pixy {
 
         String colorWithHighestCount = "None";
 
-        // compares red values to green values
-        if (redBlockCount > greenBlockCount) {
-            if (redBlockCount > blueBlockCount) {
-                if (redBlockCount > yellowBlockCount) {
-                    colorWithHighestCount = "Red";
-                }
-            }
+        // compares red values to green values (compacted from multiple if statements into a single boolean)
+        if ((redBlockCount > greenBlockCount) &&
+            (redBlockCount > blueBlockCount) &&
+            (redBlockCount > yellowBlockCount)) {
+            colorWithHighestCount = "Red";
         }
 
         // compares green values to red values
-        if (greenBlockCount > redBlockCount) {
-            if (greenBlockCount > blueBlockCount) {
-                if (greenBlockCount > yellowBlockCount) {
-                    colorWithHighestCount = "Green";
-                }
-            }
+        if ((greenBlockCount > redBlockCount) &&
+            (greenBlockCount > blueBlockCount) &&
+            (greenBlockCount > yellowBlockCount)) {
+            colorWithHighestCount = "Green";
         }
 
         // compares blue values to green values
-        if (blueBlockCount > greenBlockCount) {
-            if (blueBlockCount > redBlockCount) {
-                if (blueBlockCount > yellowBlockCount) {
-                    colorWithHighestCount = "Blue";
-                }
-            }
+        if ((blueBlockCount > greenBlockCount) &&
+            (blueBlockCount > redBlockCount) &&
+            (blueBlockCount > yellowBlockCount)) {
+            colorWithHighestCount = "Blue";
         }
 
         // compares yellow values to green values
-        if (yellowBlockCount > greenBlockCount) {
-            if (yellowBlockCount > redBlockCount) {
-                if (yellowBlockCount > blueBlockCount) {
-                    colorWithHighestCount = "Yellow";
-                }
-            }
+        if ((yellowBlockCount > greenBlockCount) &&
+            (yellowBlockCount > redBlockCount) &&
+            (yellowBlockCount > blueBlockCount)) {
+            colorWithHighestCount = "Yellow";
         }
+        // Why is this here?
         Logger.info("Red blocks: " + redBlockCount);
         Logger.info("Yellow blocks: " + yellowBlockCount);
+        Logger.info("Blue Blocks: " + blueBlockCount);
+        Logger.info("Green Blocks: " + greenBlockCount);
+
+        // just to test if system.out.print is the same as Logger.info
+        System.out.print("Red blocks: " + redBlockCount);
 
         Logger.info("Color detected: " + colorWithHighestCount);
         return colorWithHighestCount;

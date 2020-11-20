@@ -30,6 +30,7 @@ public class CycleLights extends CommandBase {
 
     @Override
     public void initialize() {
+
         Logger.action("Initializing Command: CycleLights...");
 
         m_cycleNum = 1;
@@ -39,13 +40,15 @@ public class CycleLights extends CommandBase {
         m_timer.reset();
         m_timer.start();
 
-        // Start off with lights off
-        Logger.action("CycleLights -> Turning off both lights; Cycle #" + m_cycleNum);
+        /*/ Start off with lights off /*
+        * experimenting with (m_cycleNum - 1), but would
+        * this be needed if the *default switch state is m_lightSequence = 0? */
+        Logger.action("CycleLights -> Turning off both lights; Cycle 0" + (m_cycleNum - 1));
         m_lighter.turnOffBoth();
     }
 
 
-    /    @Override
+        @Override
     public void execute() {
         double currentTime = m_timer.get();
         if (currentTime > NUM_SECONDS_PER_LIGHT) {
