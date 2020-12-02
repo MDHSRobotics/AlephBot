@@ -28,6 +28,34 @@ public class Pixy {
 
         String colorWithHighestCount = "None";
 
+        //  switch (colorCounter){
+        //     case 1:
+        //         colorCounter = 1;{
+        //             colorMode = "Red";
+        //             Logger.action("Pixy -> switchColor -> Red");
+        //         return colorMode = "Red";
+        //         }
+        //     case 2:
+        //         colorCounter = 2;{
+        //             colorMode = "Yellow";
+        //             Logger.action("Pixy -> switchColor -> Yellow");
+        //         return colorMode = "Yellow";
+        //         }
+        //     case 3:
+        //         colorCounter = 3;{
+        //             colorMode = "Green";
+        //             Logger.action("Pixy -> switchColor -> Green");
+        //         return colorMode = "Green";
+        //         }
+        //     case 4:
+        //         colorCounter = 4;{
+        //             colorMode = "Blue";
+        //             Logger.action("Pixy -> switchColor -> Blue");
+        //         return colorMode = "Blue";
+        //         }
+        //     default: colorCounter = 0;
+        // }
+
         // compares red values to green values (compacted from multiple if statements into a single boolean)
         if ((redBlockCount > greenBlockCount) &&
             (redBlockCount > blueBlockCount) &&
@@ -42,6 +70,7 @@ public class Pixy {
             colorWithHighestCount = "Green";
         }
 
+
         // compares blue values to green values
         if ((blueBlockCount > greenBlockCount) &&
             (blueBlockCount > redBlockCount) &&
@@ -49,13 +78,14 @@ public class Pixy {
             colorWithHighestCount = "Blue";
         }
 
+
         // compares yellow values to green values
         if ((yellowBlockCount > greenBlockCount) &&
             (yellowBlockCount > redBlockCount) &&
             (yellowBlockCount > blueBlockCount)) {
             colorWithHighestCount = "Yellow";
         }
-        // Why is this here?
+
         Logger.info("Red blocks: " + redBlockCount);
         Logger.info("Yellow blocks: " + yellowBlockCount);
         Logger.info("Blue Blocks: " + blueBlockCount);

@@ -13,13 +13,16 @@ public class CycleLights extends CommandBase {
     private Lighter m_lighter;
 
     // TODO: Make these constructor parameters. Use overloading for these default values.
-    private static final int NUM_CYCLES = 3;
-    private static final int NUM_SECONDS_PER_LIGHT = 1;
-
+    // To do that it must be similar to the CycleLights function
+    private int NUM_SECONDS_PER_LIGHT;
+    private int NUM_CYCLES;
     private int m_cycleNum;
     private int m_lightSequence;
+
     private Timer m_timer = new Timer();
 
+    //This is a constructor parameter (but the Lighter is provided,
+    // we have to figure out the other 4 integers)
     public CycleLights(Lighter lighter) {
         Logger.setup("Constructing Command: CycleLights...");
 
@@ -40,15 +43,15 @@ public class CycleLights extends CommandBase {
         m_timer.reset();
         m_timer.start();
 
-        /*/ Start off with lights off /*
-        * experimenting with (m_cycleNum - 1), but would
+        //|| Start with lights off ||\\
+        /* experimenting with (m_cycleNum - 1), but would
         * this be needed if the *default switch state is m_lightSequence = 0? */
         Logger.action("CycleLights -> Turning off both lights; Cycle 0" + (m_cycleNum - 1));
         m_lighter.turnOffBoth();
     }
 
 
-        @Override
+    @Override
     public void execute() {
         double currentTime = m_timer.get();
         if (currentTime > NUM_SECONDS_PER_LIGHT) {
