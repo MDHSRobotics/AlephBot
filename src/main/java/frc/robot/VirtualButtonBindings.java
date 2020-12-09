@@ -2,7 +2,6 @@
 package frc.robot;
 
 import frc.robot.consoles.Logger;
-import frc.robot.VirtualControllers;
 
 // Configures all the virtual button->command bindings for testing the robot.
 public class VirtualButtonBindings {

@@ -11,8 +11,6 @@ public class SpinColorWheel extends CommandBase {
 
     private Wheeler m_wheeler;
 
-    private int m_detectCounter;
-    private boolean m_seenWrongColor;
     private boolean m_objectiveColorFound;
 
     public SpinColorWheel(Wheeler colorwheel) {
@@ -26,7 +24,6 @@ public class SpinColorWheel extends CommandBase {
     @Override
     public void initialize() {
         Logger.action("Initializing Command: SpinColorWheel...");
-        m_seenWrongColor = false;
         m_objectiveColorFound = false;
     }
 
